@@ -13,8 +13,9 @@
 
 - Класс User (имя_пользователя, логин, пароль, идентификатор теста, результат)
 - Класс Test (идентификатор теста, тематика, вопрос, ответ)
-
-
+- Класс Category (наименование категории)
+- Класс Question (Вопрос)
+- Класс Answer (Ответ, значение boolean)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
@@ -26,6 +27,7 @@ Things you may want to cover:
 * System dependencies
 
 * Configuration
+  Database: sqlite3
 
 * Database creation
 
