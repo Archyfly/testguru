@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2019_07_15_170017) do
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "test_list"
+    t.text "test_list", default: "--- []\n"
   end
 
 end

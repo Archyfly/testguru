@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  #def user_test #(test_level)
-  #  self.select('test.title' WHERE test_level == test.level)
-  #end
+  def user_test(users_id)
+    find(users_id)
+  end
 end
