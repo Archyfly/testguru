@@ -1,5 +1,10 @@
 class User < ApplicationRecord
-  def user_test(users_id)
-    find(users_id)
+
+  # users_tests_throught_level
+  def self.utl(level)
+    Test.where(level: level).limit(10)
   end
+
+  
+
 end
