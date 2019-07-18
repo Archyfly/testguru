@@ -1,11 +1,11 @@
 class Test < ApplicationRecord
 belongs_to :category
 
-  # Через 2 запроса
-  def self.cat_sort(cat_name)
-    cat_id = Category.find_by(title: cat_name)
-    Test.where(categories_id: cat_id).order('title DESC').pluck(:title)
-  end
+  # Через 2 запроса (примерно)
+  #def self.cat_sort(cat_name)
+  #  cat_id = Category.find_by(title: cat_name)
+  #  Test.where(categories_id: cat_id).order('title DESC').pluck(:title)
+  #end
 
   # через scope
   #def self.catsort(catname)
