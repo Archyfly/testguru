@@ -1,5 +1,13 @@
 class Test < ApplicationRecord
-belongs_to :category
+  belongs_to :category
+  has_many :questions
+  has_many :tests_users
+  has_many :users, through :tests_users # through - опция, указывающая через какую таблица идет связь
+
+
+  def self.catsort2(catname2)
+    Test.joins(:category).where(categories: {title: catname2}).order('tests.title DESC').pluck(:title)
+  end
 
   # Через 2 запроса (примерно)
   #def self.cat_sort(cat_name)
@@ -14,8 +22,4 @@ belongs_to :category
   #end
 
   # Через 1 запрос
-  def self.catsort2(catname2)
-    Test.joins(:category).where(categories: {title: catname2}).order('tests.title DESC').pluck(:title)
-  end
-
 end
