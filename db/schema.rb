@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_21_095822) do
+ActiveRecord::Schema.define(version: 2019_07_21_185158) do
 
   create_table "answers", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "questions_id"
+    t.integer "question_id"
     t.boolean "correct", default: false
-    t.index ["questions_id"], name: "index_answers_on_questions_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
 # Could not dump table "categories" because of following StandardError
