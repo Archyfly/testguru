@@ -9,11 +9,17 @@ class Test < ApplicationRecord
   scope :levels, -> { pluck('title', 'level') }
   scope :easy, -> { where("level < 2") }
   scope :medium, -> { where("level BETWEEN 2 AND 4") }
-  scope :hard, -> { where("level BETWEEN 5 AND max")}
+  scope :hard, -> { where("level BETWEEN 5 AND 9e999")}
+  scope :test_level, -> { where('title: title AND level: level')}
+
+  validates :level, numericality: {only_integer: true}
+  validates :title, uniqueness: { scope: :level, message: "Test with some title and level exist!"}
+
 
   def self.catsort2(catname2)
     Test.joins(:category).where(categories: {title: catname2}).order('tests.title DESC').pluck(:title)
   end
+
 
 
   # Через 2 запроса (примерно)
