@@ -1,18 +1,21 @@
 class Question < ApplicationRecord
   belongs_to :test
   has_many :answers
-  scope :answers_count, -> { joins(:answers).count(:title) } # выдает количество записей соответствующих вопросу.
+
+  # scope :answers_count, -> { joins(:answers).count(:title) }
+  # выдает количество записей соответствующих вопросу. так то работает, но не принято
 
 
   validates :title, presence: true
-  validate :validate_count_answers
+  validate :valid_count
 
-  def validate_count_answers
-    errors.add(:answers_count) if ((answers_count < 1) || (answers_count > 4))
+  def valid_count
+    if answers.size.to_i < 1 || answers.size.to_i < 4 then
+      errors.add(:answers, "can be from 1 to 4")
+    end
   end
 
   def self.count_ans
-    puts :answers_select
     joins(:answers).count(:title)
   end
 
