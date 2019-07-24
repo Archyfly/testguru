@@ -6,14 +6,17 @@ class Test < ApplicationRecord
   has_many :users, through: :tests_users # through - опция, указывающая через какую таблица идет связь
   belongs_to :author, class_name: "User" # связь с user через author
 
-  scope :levels, -> { pluck('title', 'level') }
+  #scope :levels, -> { pluck('title', 'level') }
+  #scope :test_level, -> { where('title: title AND level: level')}
+
   scope :easy, -> { where("level < 2") }
   scope :medium, -> { where("level BETWEEN 2 AND 4") }
   scope :hard, -> { where("level BETWEEN 5 AND 9e999")}
-  scope :test_level, -> { where('title: title AND level: level')}
 
   validates :level, numericality: {only_integer: true}
-  validates :title, uniqueness: { scope: :level, message: "Test with some title and level exist!"}
+
+
+  #validates :title, uniqueness: { scope: :level, message: "Test with some title and level exist!"}заменил на ключ в базе
 
 
   def self.catsort2(catname2)
