@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_21_185158) do
+ActiveRecord::Schema.define(version: 2019_07_24_165037) do
 
   create_table "answers", force: :cascade do |t|
     t.string "title"
+    t.boolean "correct", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "question_id"
-    t.boolean "correct", default: false
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_07_21_185158) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "test_id"
   end
 
   create_table "tests", force: :cascade do |t|
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_07_21_185158) do
     t.integer "user_id"
     t.integer "author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
+    t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
     t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
@@ -54,6 +56,7 @@ ActiveRecord::Schema.define(version: 2019_07_21_185158) do
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
   end
 
 end
