@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
-  get 'about/author'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root to: 'tests#index'
+
+  resources :tests do
+    resources :questions, shallow: true
+  end
+
+  get 'about/author'
+
+  resources :tests
+  get '/tests', to: 'tests#index'
+
+  get 'tests/:id/start', to: 'tests#start'
+
+
+
 end
