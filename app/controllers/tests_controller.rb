@@ -1,4 +1,7 @@
 class TestsController < ApplicationController
+
+  before_action :find_test, only: %i[show]
+
   def index
     #byebug
     result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
@@ -8,8 +11,13 @@ class TestsController < ApplicationController
   end
 
   def show
-    redirect_to root_path
+    # redirect_to root_path
+    #title = Test.first
+    
+    render inline: '<%= @test.title %>'
   end
+
+
 
   def new
     # controller_name
@@ -26,7 +34,11 @@ class TestsController < ApplicationController
 
   private
 
-   def test_params
+  def find_test
+    @test = Test.find(params[:id])
+  end
+
+  def test_params
     params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 

@@ -1,0 +1,18 @@
+<h1>Show all questions</h1>
+
+<table>
+  <tr>
+    <th>Quesiton title</th>
+    <th>Question created at</th>
+    <th>Question this id</th>
+
+  </tr>
+
+  <% @questions.each do |question| %>
+    <tr>
+      <td><%= question.title %></td>
+      <td><%= question.created_at %></td>
+      <td><%= link_to 'Show', question_path(question) %></td>
+    </tr>
+  <% end %>
+</table>
