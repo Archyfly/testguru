@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.create(question_params)
+    question = Question.create(question_params)
     #render plain: question.inspect
     @question.save
     redirect_to @question
