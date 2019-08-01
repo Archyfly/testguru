@@ -6,7 +6,7 @@ class Question < ApplicationRecord
   # выдает количество записей соответствующих вопросу. так то работает, но не принято
 
 
-  #validates :title, presence: true
+  validates :title, presence: true
   #validate :valid_count
 
   # def valid_count
