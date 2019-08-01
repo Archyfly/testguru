@@ -7,17 +7,12 @@ Rails.application.routes.draw do
     resources :questions, shallow: true
   end
 
-
-
-  get 'about/author'
-
-  resources :tests
-  get '/tests', to: 'tests#index'
-
-  resources :questions
-  get '/questions', to: 'questions#index'
-  # проверка get '/answers', to: 'answers#index'
-
-  get 'tests/:id/start', to: 'tests#start'
+#  get 'about/author'
+#  resources :tests
+#  get '/tests', to: 'tests#index'
+#  resources :questions
+#  get '/questions', to: 'questions#index'
+# проверка get '/answers', to: 'answers#index'
+#  get 'tests/:id/start', to: 'tests#start'
 
 end
