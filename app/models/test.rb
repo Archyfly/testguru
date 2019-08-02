@@ -15,7 +15,7 @@ class Test < ApplicationRecord
 
   validates :level, numericality: {only_integer: true}
 
-  #validates :title, uniqueness: { scope: :level, message: "Test with some title and level exist!"} # заменил на ключ в базе
+  validates :title, uniqueness: { scope: :level, message: "Test with some title and level exist!"} # заменил на ключ в базе
 
 
   def self.catsort2(catname2)

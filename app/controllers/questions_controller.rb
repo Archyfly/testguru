@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-before_action :find_question, only: %i[show]
- before_action :find_test#, only: %i[create]
+before_action :find_question #, only: %i[show]
+#before_action :find_test#, only: %i[create]
  before_action :set_test#, only: %i[create]
 
   def index
@@ -18,13 +18,13 @@ before_action :find_question, only: %i[show]
   end
 
   def create
-    question_new = @test.questions.create!(question_params)
+    question_new = @test.questions.new(question_params)
     if question_new.save
-      #puts 'Question sucessfully created'
-      render plain: question_new.inspect
+      puts "Question sucessfully created"
     else
-      redirect_to question_path(question_new)
+      raise "Create new question failed"
     end
+      render plain: question_new.inspect
   end
 
   def new
@@ -45,15 +45,15 @@ before_action :find_question, only: %i[show]
   end
 
   def find_question
-    @question = Question.find(params[:id])
+    @question = Question.find_by(params[:id])
   end
 
   def set_test
-    @test = Test.find(params[:test_id])
+    @test = Test.find_by(params[:test_id])
   end
 
-  def find_test
-    @test_q = params[:test_id]
-  end
+  # def find_test
+  #   @test_q = params[:test_id]
+  # end
 
 end
