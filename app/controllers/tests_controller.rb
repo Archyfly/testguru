@@ -30,7 +30,7 @@ class TestsController < ApplicationController
     params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 
-  def start
-    render plain: 'Start certain test'
-  end
+  #def start
+  #  render plain: 'Start certain test'
+  #end
 end

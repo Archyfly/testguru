@@ -38,10 +38,15 @@ before_action :find_question #, only: %i[show]
         redirect_to question_path(@question)
   end
 
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+  end
+
   private
 
   def question_params
-    params.require(:question).permit(:title, :test_id)
+    params.require(:question).permit(:title)
   end
 
   def find_question
