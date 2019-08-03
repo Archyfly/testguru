@@ -15,6 +15,11 @@ before_action :find_question #, only: %i[show]
   def show
     #render inline: '<%= @question.title %>'
     #find_question
+    begin
+      find_question
+    rescue
+      raise "Question not found"
+    end
   end
 
   def create
@@ -31,16 +36,18 @@ before_action :find_question #, only: %i[show]
   end
 
   def edit
+    @questions.update(question_params)
   end
 
   def update
-        @question.update_attributes!(question_params)
-        redirect_to question_path(@question)
+    @questions.update(question_params)
   end
 
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
+
+    redirect_to question_path
   end
 
   private
@@ -50,7 +57,7 @@ before_action :find_question #, only: %i[show]
   end
 
   def find_question
-    @question = Question.find_by(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def set_test
