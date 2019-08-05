@@ -1,0 +1,26 @@
+<h1>Show all questions</h1>
+
+<table border="1">
+  <tr>
+    <th>Question id</th>
+    <th>Question title</th>
+    <th>Question created at</th>
+
+    <th>Edit question</th>
+    <th>Show question info</th>
+    <th>Delete question</th>
+  </tr>
+
+  <% @questions.each do |question| %>
+    <tr>
+      <td><%= question.id  %></td>
+      <td><%= question.title %></td>
+      <td><%= question.created_at %></td>
+      <td><%= link_to 'Edit', edit_question_path(question) %></td>
+      <td><%= link_to 'Show', @question %></td>
+      <td><%= link_to 'Delete', question_path(question), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+
+</table>
+<br/>
