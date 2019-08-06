@@ -3,21 +3,26 @@ class TestsController < ApplicationController
 
   def index
     #byebug
-    result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-    render plain: result.join("\n")
+    #result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
+    #render plain: result.join("\n")
+    @tests = Test.all
   end
 
   def show
-    render inline: '<%= @test.title %>'
+    #render inline: '<%= @test.title %>'
+    @test = Test.find(params[:id])
   end
 
   def new
-
   end
 
   def create
-    test = Test.create(test_params)
-    render plain: test.inspect
+    test = Test.new(test_params)
+    if test.save
+      redirect_to test
+    else
+      redirect_to :new
+    end
   end
 
   private
@@ -30,7 +35,4 @@ class TestsController < ApplicationController
     params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 
-  #def start
-  #  render plain: 'Start certain test'
-  #end
 end
