@@ -6,17 +6,25 @@
     <th>Level</th>
   </tr>
 
+<%= render @tests %>
+
+</table>
+
+
+
+<!--
   <% @tests.each do |test| %>
     <tr>
       <td><%= test.title %></td>
       <td><%= test.level %></td>
     </tr>
   <% end %>
-</table>
 
 
 
-<!-- <% if @tests.present? %>
+
+
+  <% if @tests.present? %>
   <h2>Tests in progress</h2>
 
   <% @tests.each do |test| %>

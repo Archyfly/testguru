@@ -13,6 +13,7 @@ class Test < ApplicationRecord
   scope :medium, -> { where("level BETWEEN 2 AND 4") }
   scope :hard, -> { where("level BETWEEN 5 AND 9e999")}
 
+  validates :title, presence: true
   validates :level, numericality: {only_integer: true}
 
   #validates :title, uniqueness: { scope: :level, message: "Test with some title and level exist!"} # заменил на ключ в базе

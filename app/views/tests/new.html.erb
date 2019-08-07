@@ -1,38 +1,3 @@
 <h1>Create New Test</h1>
 
-<%= form_with model: @test, local: true do |form| %>
-  <% if @test.errors.present? %>
-    <div>
-      <h2>Errors detect:</h2>
-
-      <ul>
-        <% @test.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
-
-  <p>
-    <%= form.label :level %><br>
-    <%= form.text_field :level %>
-  </p><br>
-  
-  <p>
-    <%= form.label :category_id %>:
-    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
-  </p><br>
-
-  <p>
-    <%= form.label :author_id %>:
-    <%= form.collection_select :author_id, User.all, :id, :name, prompt: true %>
-  </p><br>
-
-
-  <p><%= form.submit %></p>
-<% end %>
+<%= render 'form'%>
