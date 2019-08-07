@@ -1,4 +1,4 @@
-<h1>Create New Test</h1>
+<h1>Edit Test</h1>
 
 <%= form_with model: @test, local: true do |form| %>
   <% if @test.errors.present? %>
@@ -22,7 +22,7 @@
     <%= form.label :level %><br>
     <%= form.text_field :level %>
   </p><br>
-  
+
   <p>
     <%= form.label :category_id %>:
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
@@ -32,7 +32,6 @@
     <%= form.label :author_id %>:
     <%= form.collection_select :author_id, User.all, :id, :name, prompt: true %>
   </p><br>
-
-
+  
   <p><%= form.submit %></p>
 <% end %>

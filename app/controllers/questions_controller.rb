@@ -7,7 +7,7 @@ before_action :set_test #, only: %i[create]
   end
 
   def show
-
+    @question = Question.find(params[:id])
   end
 
   def create
