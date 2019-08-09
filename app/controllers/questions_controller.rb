@@ -7,12 +7,12 @@ before_action :set_test #, only: %i[create]
   end
 
   def show
-    @question = Question.find(params[:id])
+    @question = @test.questions.find(params[:id])
   end
 
   def create
-    question = @test.questions.new(question_params)
-    if question.save
+    @question = @test.questions.new(question_params)
+    if @question.save
       redirect_to question
     else
       redirect_to :new
@@ -20,14 +20,19 @@ before_action :set_test #, only: %i[create]
   end
 
   def new
+    @question = Question.new
   end
 
   def edit
-    @questions.update(question_params)
+    @question = Question.find(params[:id])
   end
 
   def update
-    @questions.update(question_params)
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
+    end
   end
 
   def destroy

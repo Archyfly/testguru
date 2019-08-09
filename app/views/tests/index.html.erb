@@ -2,11 +2,13 @@
 
 <table border = "1">
   <tr>
+    <th>id</th>
     <th>Title</th>
     <th>Level</th>
   </tr>
 
 <%= render @tests %>
+<%= render partial: 'questions/question', collection: @questions %>
 
 </table>
 

@@ -1,6 +1,6 @@
 <h1>Show question</h1>
 
-<strong> question </strong>
+<strong> Question: </strong>
   <p>
     <%= @question.title %>
   </p><p>
@@ -8,3 +8,4 @@
   </p><p>
     test_id:  <%= @question.test_id %>
 <p>
+  <%= link_to 'Back', question_path %>
