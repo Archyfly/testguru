@@ -5,14 +5,15 @@
     <th>id</th>
     <th>Title</th>
     <th>Level</th>
+    <th colspan="3">Actions</th>
   </tr>
 
 <%= render @tests %>
-<%= render partial: 'questions/question', collection: @questions %>
+
 
 </table>
-
-
+<br/>
+<%= link_to 'New test', new_test_path %>
 
 <!--
   <% @tests.each do |test| %>

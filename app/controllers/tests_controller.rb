@@ -10,13 +10,12 @@ class TestsController < ApplicationController
     @tests = Test.all
     @category = Category.all
 
-    #@author = au
   end
 
   def show
     @test = Test.find(params[:id])
     @questions = @test.questions
-
+    @questions.count
   end
 
   def new
