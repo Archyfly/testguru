@@ -7,13 +7,9 @@
   <strong>Level:</strong>
   <%= @test.level %>
 </p>
-
+<p><b>Questions for this test: </b></p>
+<%= @questions.each do |q| %>
 <p>
-  <strong>Category:</strong>
-  <%= @category.title %>
-</p>
-
+<%= q.title %>
 <p>
-  <strong>Author:</strong>
-  <%= @author.name %>
-</p>
+<% end %>
