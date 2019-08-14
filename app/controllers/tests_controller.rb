@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  before_action :find_test, only: %i[edit, update, show]
+  before_action :find_test, only: %i[edit update show]
   #before_action :find_category, only: %i[show]
 #  before_action :find_author, only: %i[show]
 

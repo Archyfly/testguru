@@ -3,8 +3,12 @@
 <strong> Question: </strong>
   <p>
     <%= @question.title %>
-  </p><p>
+  </p>
+  <p>
     <%= @question.created_at %>
+<br/><br/>
+    <p> current question title is: <%= question_title %>
+      <p> current test title is: <%= question_header %>
 
 <p>
-  <%= link_to 'Back', test_questions_path %>
+  <%= link_to 'Back', tests_path %>

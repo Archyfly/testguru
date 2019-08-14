@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-before_action :set_test#, only: %i[create, edit, update]
-before_action :find_question, only: %i[show, edit, update, destroy]
+before_action :set_test, only: %i[create new]
+before_action :find_question, only: %i[show edit update destroy]
 
   def index
     @questions = Question.all
@@ -47,8 +47,8 @@ before_action :find_question, only: %i[show, edit, update, destroy]
   end
 
   def find_question
-    @question = @test.questions.find(params[:id])
-    #@question = Question.find(params[:id])
+    #@question = @test.questions.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def set_test
