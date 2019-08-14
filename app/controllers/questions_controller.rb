@@ -1,7 +1,6 @@
 class QuestionsController < ApplicationController
 before_action :set_test#, only: %i[create, edit, update]
-before_action :find_question, only: %i[show, edit, destroy]
-
+before_action :find_question, only: %i[show, edit, update, destroy]
 
   def index
     @questions = Question.all
@@ -9,13 +8,12 @@ before_action :find_question, only: %i[show, edit, destroy]
 
   def show
     #@question = @test.questions.find(params[:id])
-    find_question
   end
 
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      redirect_to @question
+      redirect_to test_questions_path
     else
       redirect_to :new
     end
@@ -27,22 +25,19 @@ before_action :find_question, only: %i[show, edit, destroy]
 
   def edit
     #@question = Question.find(params[:id])
-    find_question
   end
 
   def update
-    if @test.questions.update(question_params)
-      redirect_to @question
+    if @question.update(question_params)
+      redirect_to @question.test
     else
       render :edit
     end
   end
 
   def destroy
-    @question = Question.find(params[:id])
     @question.destroy
-
-    redirect_to :questions
+    redirect_to @test.questions
   end
 
   private
@@ -53,10 +48,11 @@ before_action :find_question, only: %i[show, edit, destroy]
 
   def find_question
     @question = @test.questions.find(params[:id])
+    #@question = Question.find(params[:id])
   end
 
   def set_test
-    @test = Test.find_by(params[:test_id])
+    @test = Test.find(params[:test_id])
   end
 
 end
