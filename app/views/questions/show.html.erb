@@ -7,8 +7,8 @@
   <p>
     <%= @question.created_at %>
 <br/><br/>
-    <p> current question title is: <%= question_title %>
-      <p> current test title is: <%= question_header %>
+    <p> current question title is: <%= question_header(@question) %>
+      <p> current test title is: <%= question_header(@question) %>
 
 <p>
   <%= link_to 'Back', tests_path %>

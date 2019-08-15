@@ -13,7 +13,7 @@ class TestsController < ApplicationController
   end
 
   def show
-    @test = Test.find(params[:id])
+    #@test = Test.find(params[:id])
     @questions = @test.questions
     @questions.count
   end
@@ -32,7 +32,7 @@ class TestsController < ApplicationController
   end
 
   def edit
-    @test = Test.find(params[:id])
+    #@test = Test.find(params[:id])
   end
 
   def update
