@@ -1,0 +1,23 @@
+<h5><b>----------- Footer test (file in views/shared/_footer.html.erb) ---------------</b></h5>
+<html>
+  <head>
+  <title>Проект "Test Guru"</title>
+  <meta charset="windows-1251">
+
+  </head>
+  <body>
+    <h5>Проект "Test Guru"<br/>
+    First task in my course of "Ruby on Rails"<br/>
+    <a href="/about/author" target="_blank"> about author this project </a><br/>
+    <a href="http://thinknetica.com" target="_blank"> Project was created due school www.thinknetica.com </a><br/>
+    <%= Time.now.year %>
+    Year from helper:
+    <%= current_year %>
+    <p>
+    <%= github_url(Archyfly, testguru) %>
+    </p>
+    </h5>
+
+
+  </body>
+</html>

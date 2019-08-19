@@ -1,0 +1,18 @@
+<p>
+  <strong>Title:</strong>
+  <%= @test.title %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @test.level %>
+</p>
+<p>
+  <b>Questions for this test: </b>
+</p>
+<%= @questions.each do |q| %>
+  <p>
+    <%= q.id %>
+    <%= q.title %>
+  </p>
+<% end %>

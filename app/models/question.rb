@@ -5,8 +5,8 @@ class Question < ApplicationRecord
   # scope :answers_count, -> { joins(:answers).count(:title) }
   # выдает количество записей соответствующих вопросу. так то работает, но не принято
 
-
   validates :title, presence: true
+
   #validate :valid_count
 
   # def valid_count

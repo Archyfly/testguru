@@ -1,10 +1,14 @@
 <h1>Show question</h1>
 
-<strong> question </strong>
+<strong> Question: </strong>
+  <p>
+    <%= @question.title %>
+  </p>
+  <p>
+    <%= @question.created_at %>
+<br/><br/>
+    <p> current question title is: <%= question_header(@question) %>
+      <p> current test title is: <%= question_header(@question) %>
+
 <p>
-  <%= @question.title %>
-</p><p>
-  <%= @question.created_at %>
-</p><p>
-  test_id:  <%= @question.test_id %>
-<p>
+  <%= link_to 'Back', tests_path %>
