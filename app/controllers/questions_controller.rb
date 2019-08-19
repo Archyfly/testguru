@@ -7,7 +7,6 @@ before_action :find_question, only: %i[show edit update destroy]
   end
 
   def show
-    #@question = @test.questions.find(params[:id])
   end
 
   def create
@@ -24,7 +23,6 @@ before_action :find_question, only: %i[show edit update destroy]
   end
 
   def edit
-    #@question = Question.find(params[:id])
   end
 
   def update

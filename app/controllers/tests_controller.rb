@@ -4,18 +4,12 @@ class TestsController < ApplicationController
 #  before_action :find_author, only: %i[show]
 
   def index
-    #byebug
-    #result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-    #render plain: result.join("\n")
     @tests = Test.all
     @category = Category.all
-
   end
 
   def show
-    #@test = Test.find(params[:id])
     @questions = @test.questions
-    @questions.count
   end
 
   def new
