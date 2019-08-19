@@ -1,14 +1,16 @@
-<h1>Show question</h1>
+<h1><%= @question.test.title %></h1>
 
-<strong> Question: </strong>
-  <p>
-    <%= @question.title %>
-  </p>
-  <p>
-    <%= @question.created_at %>
-<br/><br/>
-    <p> current question title is: <%= question_header(@question) %>
-      <p> current test title is: <%= question_header(@question) %>
+<strong> Question: <%= @question.title %> </strong>
+  <p> current question title is: <%= question_header(@question) %>
+  <p> current test title is: <%= question_header(@question) %>
+
+<h2>Answers</h2>
+<%= link_to "New answer", new_question_answer_path(@question) %>
+
+<ol>
+  <%= render @question.answers %>
+</ol>
 
 <p>
+  <%= link_to 'Edit', edit_question_path(@question) %>
   <%= link_to 'Back', tests_path %>
