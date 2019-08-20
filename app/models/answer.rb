@@ -6,6 +6,6 @@ class Answer < ApplicationRecord
   validate :answers_from_one_to_four
 
   def answers_from_one_to_four
-    errors.add(:question, 'so many answers') if (question.answers.count) >= 4
+    errors.add(:question, 'so many answers') if (@question.answers.count) >= 4
   end
 end
