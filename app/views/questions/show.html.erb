@@ -1,8 +1,6 @@
 <h1><%= @question.test.title %></h1>
 
-<strong> Question: <%= @question.title %> </strong>
-  <p> current question title is: <%= question_header(@question) %>
-  <p> current test title is: <%= question_header(@question) %>
+<p> Question: <%= @question.title %> </p>
 
 <h2>Answers</h2>
 <%= link_to "New answer", new_question_answer_path(@question) %>

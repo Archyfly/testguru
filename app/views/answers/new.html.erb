@@ -1,9 +1,8 @@
 <h1>New Answer</h1>
 
 <p>
-  <%= @question.title %>
+  New answer for <b> question: <%= @question.title %></b>
 </p>
 
 <%= render 'form' %>
-
 <%= link_to 'Back', answers_path %>
