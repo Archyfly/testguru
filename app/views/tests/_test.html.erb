@@ -5,10 +5,15 @@
 
   <td><%= link_to "Show", test_path(test) %></td>
   <td><%= link_to "Edit", edit_test_path(test) %></td>
-  <td><%= link_to 'Delete',
+
+  <td>
+    <%= link_to 'Delete',
     test_path(test),
     method: :delete,
     data: { confirm: 'This test will be deleted! Are you sure?' } %>
   </td>
+  <td><%= button_to "Start test", start_test_path(test) %></td>
   <td> <%= test.questions.count %></td>
+
+
 </tr>

@@ -1,7 +1,9 @@
 class TestsController < ApplicationController
-  before_action :find_test, only: %i[edit update show]
-  #before_action :find_category, only: %i[show]
-#  before_action :find_author, only: %i[show]
+  before_action :find_test, only: %i[edit update show start]
+  before_action :set_user, only: :start
+
+  # before_action :find_category, only: %i[show]
+  # before_action :find_author, only: %i[show]
 
   def index
     #byebug
@@ -43,6 +45,11 @@ class TestsController < ApplicationController
     end
   end
 
+  def start
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
+  end
+
   private
 
    def find_test
@@ -61,4 +68,7 @@ class TestsController < ApplicationController
     @author = User.find(params[:user_id])
   end
 
+  def set_user
+    @user = User.first
+  end
 end

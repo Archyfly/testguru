@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_19_155543) do
+ActiveRecord::Schema.define(version: 2019_08_24_041539) do
 
   create_table "answers", force: :cascade do |t|
     t.string "body"
@@ -31,9 +31,21 @@ ActiveRecord::Schema.define(version: 2019_08_19_155543) do
     t.integer "test_id"
   end
 
+  create_table "test_passages", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "test_id"
+    t.integer "current_question_id"
+    t.integer "correct_questions", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
+    t.index ["test_id"], name: "index_test_passages_on_test_id"
+    t.index ["user_id"], name: "index_test_passages_on_user_id"
+  end
+
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "level", default: 0, null: false
+    t.integer "level", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
@@ -42,12 +54,6 @@ ActiveRecord::Schema.define(version: 2019_08_19_155543) do
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
     t.index ["user_id"], name: "index_tests_on_user_id"
-  end
-
-  create_table "tests_users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "test_id", null: false
-    t.index ["user_id", "test_id"], name: "index_tests_users_on_user_id_and_test_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
