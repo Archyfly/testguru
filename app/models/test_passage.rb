@@ -6,12 +6,13 @@ class TestPassage < ApplicationRecord
   # коллбэк нужен для того чтобы при создании объекта прохождения теста
   # первый вопрос уже имел значение, существовал для TestPassage
   before_validation :before_validation_set_first_question, on: :create
+  before_validation :before_validation_set_next_question_to_current, on: :update
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions += 1
     end
-    self.current_question = next_question
+    #self.current_question = next_question
     save!
   end
 
@@ -23,6 +24,10 @@ class TestPassage < ApplicationRecord
 
   def before_validation_set_first_question
     self.current_question = test.questions.first if test.present?
+  end
+
+  def before_validation_set_next_question_to_current
+    self.current_question = next_question
   end
 
   # получили обьект correct_answers, используем count - только тогда получаем из агрегирующего запроса количество правильных ответов
@@ -40,7 +45,7 @@ class TestPassage < ApplicationRecord
     current_question.answers.correct
   end
 
-  # после того как выбрали все вопросы у которых id больше чем id текущего вопроса - мы вибираем из них первый,
+  # после того как выбрали все вопросы у которых id больше чем id текущего вопроса - мы выбираем из них первый,
   # это и будет следующий вопрос. (Знак вопрос - из ранее пройденого, передаем current_question.id неявно, предотвр. sql injections)
   def next_question
     test.questions.order(:id).where('id > ?', current_question.id).first
