@@ -1,0 +1,22 @@
+<h1>The <%= @test_passage.test.title %> Test was completed! </h1>
+<% count = @test_passage.test.questions.count %>
+<% correct = @test_passage.correct_questions %>
+<% rate = correct*100/count %>
+<% if @test_passage.success?(rate)
+     color = 'green'
+     message = 'passed!'
+   else
+     message = 'failed...'
+     color = 'red'
+   end
+%>
+
+<%= link_to "All tests", tests_path %>
+
+<h1>Pass the <%= @test_passage.test.title %> Test </h1><br/>
+<h3>Count of questions in test: <%= count %></h3>
+<h3>Count of correct answers in result: <%= correct %></h3>
+<h3><font color="<%= color%>">Success rate: <%= rate %>%. Test <%= message %></font>
+
+
+<br/><br/>

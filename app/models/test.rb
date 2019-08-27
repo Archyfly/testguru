@@ -2,8 +2,8 @@ class Test < ApplicationRecord
   max = Float::INFINITY
   belongs_to :category
   has_many :questions
-  has_many :tests_users
-  has_many :users, through: :tests_users # through - опция, указывающая через какую таблица идет связь
+  has_many :test_passages
+  has_many :users, through: :test_passages # through - опция, указывающая через какую таблица идет связь
   belongs_to :author, class_name: "User" # связь с user через author
 
   #scope :levels, -> { pluck('title', 'level') }
