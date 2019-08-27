@@ -1,4 +1,5 @@
 class TestPassage < ApplicationRecord
+  SUCCESS_RATE = 85
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -7,6 +8,10 @@ class TestPassage < ApplicationRecord
   # первый вопрос уже имел значение, существовал для TestPassage
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question_to_current, on: :update
+
+  def success?(rate)
+    rate >= SUCCESS_RATE
+  end
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
