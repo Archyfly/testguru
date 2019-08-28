@@ -1,4 +1,8 @@
+require 'digest/sha1'
+
 class User < ApplicationRecord
+
+  include Auth
 
   has_many :test_passages
   has_many :tests, through: :test_passages # through - опция, указывающая через какую таблица идет связь
@@ -8,11 +12,8 @@ class User < ApplicationRecord
     test_passages.order(id: :desc).find_by(test_id: test.id)
   end
 
-  validates :email, presence: true
-
   def tests_of_user_from_level(testlevel)
     Test.joins('join user_tests on user_tests.user_id = user.id').where(user_tests: {level: testlevel})
   end
-
 
 end
