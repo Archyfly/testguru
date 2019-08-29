@@ -1,4 +1,8 @@
 class TestsController < ApplicationController
+
+  before_action :authenticate_user! # Обратный вызов, должен быть выполнен ранее двух нижних
+  # так как TestsController наследуется от ApplicationController
+  # то и метод :authenticate_user! тоже будет доступен.
   before_action :find_test, only: %i[edit update show start]
   before_action :set_user, only: :start
 
