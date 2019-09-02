@@ -4,14 +4,20 @@ class ApplicationController < ActionController::Base
 #    raise ActiveRecord::RecordNotFound.new('Not Found')
 #  end
 
-  helper_method :current_user
+  helper_method :current_user,
+                :logged_in?
 
   private
 
   def authenticate_user!
     unless current_user
-      redirect_to login_path
+      # flash[:alert] = 'Are you Guru? Verify your email and password please. ' Код ниже
+      # позовляет также вызвать flash[:alert] без явного вызова метода flash
+      redirect_to login_path, alert: 'Are you Guru? Verify your email and password please. '
     end
+
+    cookies[:id] = current_user&.id
+    cookies[:email] = current_user&.email
   end
 
   def current_user
