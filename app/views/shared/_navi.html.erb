@@ -1,7 +1,7 @@
 <% if logged_in? %>
   <p class='flash' align='center'> Welcome!!!! </p>
   <td>
-    <%= link_to 'logout', logout_path, method: :destroy, data: { confirm: 'Are you realy want to quit?' } %>
+    <%= link_to 'logout', logout_path, method: :delete %>
   </td>
 <% else %>
   <p class='user nav' align='center'>Проект "Test Guru"</p>
