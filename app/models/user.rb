@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_secure_password
 
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
+  validates :email, uniqueness: :true
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)

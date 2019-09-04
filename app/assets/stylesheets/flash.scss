@@ -2,7 +2,7 @@
   border: 2px solid;
   padding: 10px;
   border-radius: 5px;
-  background: #4da8c9;
+  background: #b8eae1;
 }
 
 .flash.alert {
@@ -11,4 +11,9 @@
 
 .flash.test {
   border-color: #014444;
+}
+
+.flash.notice {
+  border-color: #f8f516;
+  background: #e17d78;
 }
