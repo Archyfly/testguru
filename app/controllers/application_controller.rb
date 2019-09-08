@@ -5,9 +5,14 @@ class ApplicationController < ActionController::Base
 #  end
 
   helper_method :current_user,
-                :logged_in?
+                :logged_in?,
+                :user_path
 
   private
+
+  def user_path
+    @user_path = request.path
+  end
 
   def authenticate_user!
     unless current_user
@@ -18,6 +23,7 @@ class ApplicationController < ActionController::Base
 
     cookies[:id] = current_user&.id
     cookies[:email] = current_user&.email
+
   end
 
   def current_user

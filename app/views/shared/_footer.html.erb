@@ -14,6 +14,9 @@
     Year from helper: <%= current_year %>
     <p> <%= github_url('archyfly', 'testguru') %> </p>
     </h5>
-
+    <p>original_url = <%= request.original_url %></p>
+    <p>path = <%= request.path %></p>
+    <p>path_info = <%= request.path_info %></p>
+    <p>user_path = <%= user_path %></p>
   </body>
 </html>
