@@ -1,5 +1,5 @@
 <p class='flash notice' align='center'> Welcome on local project TestGuru </p>
-<% if logged_in? %>
+<% if user_signed_in? %>
   <p class='flash' align='center'> You logged in. </p>
   <td>
     <%= link_to 'logout', logout_path, method: :delete %>
@@ -8,10 +8,10 @@
   <p class='nav user' align='center'>Проект "Test Guru"</p>
   <table align = "right">
     <td>
-      <a href="/login" target="_self"> Log in </a></p><br/>
+      <a href="/gurus/login" target="_self"> Log in </a></p><br/>
     </td>
     <td>
-      <a href="/signup" target="_self"> Register </a></p><br/>
+      <a href="/gurus/sign_up" target="_self"> Register </a></p><br/>
     </td>
   </table>
   </p>
