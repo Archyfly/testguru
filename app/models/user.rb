@@ -1,6 +1,15 @@
-require 'digest/sha1'
+# require 'digest/sha1'
 
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable,
+         :confirmable
 
   # include Auth - удаляем после подключения гема bcrypt
 
@@ -8,7 +17,7 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages # through - опция, указывающая через какую таблица идет связь
   has_many :authored_tests, class_name: "Test", foreign_key: :user_id
 
-  has_secure_password
+  # has_secure_password
 
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :email, uniqueness: :true

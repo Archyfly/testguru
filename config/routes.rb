@@ -1,18 +1,24 @@
 Rails.application.routes.draw do
+
+  root 'tests#index'
+
+  devise_for :users
+
   get 'sessions/new'
   get 'users/new'
   # resources :answers
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root to: 'tests#index'
+  # Убрали после подключения devise
+  # get :signup, to: 'users#new'
+  # get :login, to: 'sessions#new'
 
-  get :signup, to: 'users#new'
-  get :login, to: 'sessions#new'
+  # resources :users, only: :create
+  # resources :sessions, only: :create
+  # resources :sessions, only: :destroy
+
   delete :logout, to: 'sessions#destroy'
 
-  resources :users, only: :create
-  resources :sessions, only: :create
-  resources :sessions, only: :destroy
 
   resources :tests do
     resources :questions, shallow: true do
