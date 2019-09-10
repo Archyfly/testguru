@@ -21,4 +21,8 @@ class User < ApplicationRecord
     Test.joins('join user_tests on user_tests.user_id = user.id').where(user_tests: {level: testlevel})
   end
 
+  # def set_current_user
+  #  User.current = (session[:user_id]) ? User.find_by_id(session[:user_id]) : nil
+  # end
+
 end
