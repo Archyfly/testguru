@@ -1,9 +1,9 @@
-class TestsController < ApplicationController
+class Admin::TestsController < ApplicationController
 
   before_action :authenticate_user! # Обратный вызов, должен быть выполнен ранее двух нижних
   # так как TestsController наследуется от ApplicationController
   # то и метод :authenticate_user! тоже будет доступен.
-  before_action :find_test, only: %i[start]
+  before_action :find_test, only: %i[edit update show start]
 
   # после применения :authenticate_user! с использованием devise
   # этот метод больше не нужон, так как будем использовать current_user
@@ -19,6 +19,38 @@ class TestsController < ApplicationController
     #render plain: result.join("\n")
     @tests = Test.all
     @category = Category.all
+
+  end
+
+  def show
+    #@test = Test.find(params[:id])
+    @questions = @test.questions
+    @questions.count
+  end
+
+  def new
+    @test = Test.new
+  end
+
+  def create
+    @test = Test.new(test_params)
+    if @test.save
+      redirect_to @test
+    else
+      render :new
+    end
+  end
+
+  def edit
+    #@test = Test.find(params[:id])
+  end
+
+  def update
+    if @test.update(test_params)
+      redirect_to @test
+    else
+      render :edit
+    end
   end
 
   def start

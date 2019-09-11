@@ -20,9 +20,9 @@ Rails.application.routes.draw do
   delete :logout, to: 'sessions#destroy'
 
 
-  resources :tests do
-    resources :questions, shallow: true do
-      resources :answers, shallow: true, except: :index
+  resources :tests, only: :index do
+    resources :questions, except: :index, shallow: true do
+      resources :answers, except: :index, shallow: true
     end
 
     member do
@@ -36,6 +36,12 @@ Rails.application.routes.draw do
     member do
       get :result
     end
+  end
+
+  # Здесь мы говорим что все остальные ресурсы tests будут
+  # находится в пространстве имен admin
+  namespace :admin do
+    resources :tests
   end
 
 #  get 'about/author'
