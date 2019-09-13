@@ -1,8 +1,10 @@
-class Admin::TestsController < ApplicationController
+class Admin::TestsController < Admin::BaseController
 
-  before_action :authenticate_user! # Обратный вызов, должен быть выполнен ранее двух нижних
+  # before_action :authenticate_user! # Обратный вызов, должен быть выполнен ранее двух нижних
   # так как TestsController наследуется от ApplicationController
   # то и метод :authenticate_user! тоже будет доступен.
+  # Убран после подключения devise. Вместо него будет базовый контроллер, разделяющий доступ: base_controller
+
   before_action :find_test, only: %i[edit update show start]
 
   # после применения :authenticate_user! с использованием devise
@@ -75,6 +77,15 @@ class Admin::TestsController < ApplicationController
   def find_author
     @author = User.find(params[:user_id])
   end
+
+  def find_category
+    @category = Category.find(params[:category_id])
+  end
+
+  #def find_author
+  #  @author = current_user
+  #  User.find(params[:user_id])
+  #end
 
   # def set_user
   # @user = User.first

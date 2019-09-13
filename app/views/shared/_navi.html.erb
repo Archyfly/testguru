@@ -1,6 +1,6 @@
 <p class='flash notice' align='center'> Welcome on local project TestGuru </p>
 <% if user_signed_in? %>
-  <p class='flash' align='center'> You logged in. </p>
+  <p class='flash alert' align='center'> Welcome <%= current_user.first_name %> <%= current_user.last_name %> ( <%= current_user.type %>), you logged in! </p>
   <td>
     <%= link_to 'logout', logout_path, method: :delete %>
   </td>

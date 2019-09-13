@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def user_path
     @user_path = request.path
-   end
+  end
 
   # def authenticate_user!
   #  unless current_user

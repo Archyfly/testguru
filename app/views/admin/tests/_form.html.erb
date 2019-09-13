@@ -19,7 +19,10 @@
   <p>
     <%= form.label :author_id %>:
     <%= form.collection_select :author_id, User.all, :id, :email, prompt: true %>
+    <%= form.text_field current_user.id %>
+
   </p><br>
+
 
   <p><%= form.submit %></p>
 <% end %>

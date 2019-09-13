@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin panel for TestGuru</title>
+    <meta charset="windows-1251">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'admin/navi' %>
+    <%= render 'shared/flash'%>
+
+    <%= yield %>
+    <%= render 'shared/footer' %>
+
+  </body>
+</html>
