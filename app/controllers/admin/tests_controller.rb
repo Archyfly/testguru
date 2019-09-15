@@ -35,9 +35,9 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-    @test = Test.new(test_params)
+    @test = current_user.authored_tests.new(test_params)
     if @test.save
-      redirect_to @test
+      redirect_to tests_url
     else
       render :new
     end
@@ -49,7 +49,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to @test
+      redirect_to tests_url
     else
       render :edit
     end
@@ -67,20 +67,20 @@ class Admin::TestsController < Admin::BaseController
    end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
   def find_category
     @category = Category.find(params[:category_id])
   end
 
-  def find_author
-    @author = User.find(params[:user_id])
-  end
+  # def find_author
+  # @author = User.find(params[:user_id])
+  # end
 
-  def find_category
-    @category = Category.find(params[:category_id])
-  end
+  # def find_category
+  #  @category = Category.find(params[:category_id])
+  # end
 
   #def find_author
   #  @author = current_user

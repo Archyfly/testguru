@@ -32,17 +32,17 @@ class TestsController < ApplicationController
      @test = Test.find(params[:id])
    end
 
-  def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id)
-  end
+  #def test_params
+  #  params.require(:test).permit(:title, :level, :category_id, :author_id)
+  #end
 
   def find_category
     @category = Category.find(params[:category_id])
   end
 
-  def find_author
-    @author = User.find(params[:user_id])
-  end
+  # def find_author
+  #  @author = User.find(params[:user_id])
+  # end
 
   # def set_user
   # @user = User.first

@@ -21,9 +21,14 @@ Rails.application.routes.draw do
 
 
   resources :tests, only: :index do
-    resources :questions, except: :index, shallow: true do
-      resources :answers, except: :index, shallow: true
+    resources :questions, only: :index, shallow: true do
+      resources :answers, only: :index, shallow: true
     end
+
+  #  resources :tests, only: :index do
+  #    resources :questions, except: :index, shallow: true do
+  #      resources :answers, except: :index, shallow: true
+  #    end
 
     member do
       post :start
@@ -41,7 +46,11 @@ Rails.application.routes.draw do
   # Здесь мы говорим что все остальные ресурсы tests будут
   # находится в пространстве имен admin
   namespace :admin do
-    resources :tests
+    resources :tests do
+      resources :questions, except: :index, shallow: true do
+        resources :answers, except: :index, shallow: true
+      end
+    end
   end
 
 #  get 'about/author'

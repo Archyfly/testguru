@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   has_many :test_passages
   has_many :tests, through: :test_passages # through - опция, указывающая через какую таблица идет связь
-  has_many :authored_tests, class_name: "Test", foreign_key: :user_id
+  has_many :authored_tests, class_name: "Test", foreign_key: :author_id
 
   # has_secure_password
 
@@ -30,8 +30,8 @@ class User < ApplicationRecord
     Test.joins('join user_tests on user_tests.user_id = user.id').where(user_tests: {level: testlevel})
   end
 
-  # def set_current_user
-  #  User.current = (session[:user_id]) ? User.find_by_id(session[:user_id]) : nil
-  # end
+  def admin?
+    self.is_a?(Admin)
+  end
 
 end
