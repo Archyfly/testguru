@@ -1,6 +1,6 @@
 <p class='flash notice' align='center'> Welcome on local project TestGuru </p>
-<% if logged_in? %>
-  <p class='flash' align='center'> You logged in. </p>
+<% if user_signed_in? %>
+  <p class='flash alert' align='center'> Welcome <%= current_user.first_name %> <%= current_user.last_name %> ( <%= current_user.type %>), you logged in! </p>
   <td>
     <%= link_to 'logout', logout_path, method: :delete %>
   </td>
@@ -8,10 +8,10 @@
   <p class='nav user' align='center'>Проект "Test Guru"</p>
   <table align = "right">
     <td>
-      <a href="/login" target="_self"> Log in </a></p><br/>
+      <a href="/gurus/login" target="_self"> Log in </a></p><br/>
     </td>
     <td>
-      <a href="/signup" target="_self"> Register </a></p><br/>
+      <a href="/gurus/sign_up" target="_self"> Register </a></p><br/>
     </td>
   </table>
   </p>

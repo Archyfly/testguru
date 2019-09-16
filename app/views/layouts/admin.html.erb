@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TestGuru</title>
+    <title>Admin panel for TestGuru</title>
     <meta charset="windows-1251">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,15 +11,7 @@
   </head>
 
   <body>
-    <%= render 'shared/navi' %>
-
-    <% if user_signed_in? %>
-      <p class='nav user'>
-        Welcome, <b><%= current_user.email %></b> Guru |
-        <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-      </p>
-    <% end %>
-
+    <%= render 'admin/navi' %>
     <%= render 'shared/flash'%>
 
     <%= yield %>

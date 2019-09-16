@@ -15,4 +15,7 @@
     <%= q.id %>
     <%= q.title %>
   </p>
+<%= link_to 'New question', new_admin_test_question_path(@test) %>
+<%= link_to 'Edit', edit_admin_test_path(@test) %>
+<%= link_to 'Back', admin_test_path %>
 <% end %>
