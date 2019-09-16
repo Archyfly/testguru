@@ -37,7 +37,7 @@ class Admin::TestsController < Admin::BaseController
   def create
     @test = current_user.authored_tests.new(test_params)
     if @test.save
-      redirect_to tests_url
+      redirect_to [:admin, @test], notice: t('.success') 
     else
       render :new
     end

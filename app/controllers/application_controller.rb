@@ -1,14 +1,16 @@
 class ApplicationController < ActionController::Base
 
-#  def not_found
-#    raise ActiveRecord::RecordNotFound.new('Not Found')
-#  end
+  before_action :set_locale
 
-  # helper_method :current_user,
-  #              :logged_in?,
-  #              :user_path
+  def default_url_options
+    { lang: I18n.locale }
+  end
 
   private
+
+  def set_locale
+    I18n.locale = I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
+  end
 
   def user_path
     @user_path = request.path

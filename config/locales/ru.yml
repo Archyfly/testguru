@@ -1,0 +1,22 @@
+ru:
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
+    label:
+      test:
+        title: "Название теста"
+        level: "Уровень сложности"
+        category_id: "Категория"
+
+  tests:
+    index:
+      header: "Доступные тесты для прохождения"
+
+  admin:
+    tests:
+      create:
+        success: "Тест очень успешно создан, не забудьте про вопросы..."
+      index:
+        header: "Доступные тесты для прохождения"
