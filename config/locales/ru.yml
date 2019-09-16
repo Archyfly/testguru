@@ -4,6 +4,7 @@ ru:
       test:
         create: "Создать тест"
         update: "Обновить тест"
+        prompt: "Выберите из списка"
     label:
       test:
         title: "Название теста"
