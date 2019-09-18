@@ -15,6 +15,10 @@ ru:
     index:
       header: "Доступные тесты для прохождения"
 
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершон"  
+
   admin:
     tests:
       create:
