@@ -47,7 +47,16 @@ en:
 
   test_passages:
     result:
-      header: "Test %{title} succesfully complitt"
+      header: "Test %{title} succesfully completed!"
+    show:
+      header: "Passing test %{title}"
+      questions_count: "Count of Questions in test: %{questions_count}"
+      questions_id: "Question id: %{questions_id}"
+
+  devise:
+    sessions:
+      new:
+        header: "Enter the Guru gates!"
 
   admin:
     tests:

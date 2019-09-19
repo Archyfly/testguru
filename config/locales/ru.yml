@@ -17,8 +17,19 @@ ru:
 
   test_passages:
     result:
-      header: "Тест %{title} успешно завершон"  
+      header: "Тест %{title} успешно завершён!"
+    show:
+      header: "Прохождение теста %{title}"
+      questions_count: "Количество вопросов в тесте: %{questions_count}"
+      questions_id: "Вопрос № %{questions_id}"
 
+  devise:
+    sessions:
+      new:
+        header: "Введите логин пароль и станьте, наконец, Гуру!"
+    submit:
+      sessions:
+        new: "Ентер"
   admin:
     tests:
       create:
