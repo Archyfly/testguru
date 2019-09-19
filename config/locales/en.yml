@@ -64,3 +64,9 @@ en:
         success: "Test succesfully create, don't forget about questions..."
       index:
         header: "Tricky tests for passage"
+      
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"

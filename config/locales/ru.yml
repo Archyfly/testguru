@@ -27,12 +27,18 @@ ru:
     sessions:
       new:
         header: "Введите логин пароль и станьте, наконец, Гуру!"
-    submit:
-      sessions:
-        new: "Ентер"
+
   admin:
     tests:
       create:
         success: "Тест очень успешно создан, не забудьте про вопросы..."
       index:
         header: "Доступные тесты для прохождения"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
