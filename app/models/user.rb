@@ -34,4 +34,5 @@ class User < ApplicationRecord
     self.is_a?(Admin)
   end
 
+
 end

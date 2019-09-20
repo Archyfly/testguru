@@ -1,4 +1,4 @@
-<h1>The <%= @test_passage.test.title %> Test was completed! </h1>
+<h1> <%= t('.header', title: @test_passage.test.title) %>  </h1>
 <% count = @test_passage.test.questions.count %>
 <% correct = @test_passage.correct_questions %>
 <% rate = correct*100/count %>

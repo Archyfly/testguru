@@ -1,9 +1,9 @@
 <%# Дальше будем выводить название этого теста
 который мы проходим. Чтобы получить название теста у нас есть обьект модели @test_passage,
 по ассоциации забираем обьект теста %>
-<h1>Pass the <%= @test_passage.test.title %> Test </h1>
-<p>Questions count: <%= @test_passage.test.questions.count %></p>
-<p>Question id is: <%= @test_passage.current_question.id %></p>
+<h1><%= t('.header', title: @test_passage.test.title) %></h1>
+<p><%= t('.questions_count', questions_count: @test_passage.test.questions.count) %></p>
+<p><%= t('.questions_id', questions_id: @test_passage.current_question.id) %></p>
 
 <b>
   <%= @test_passage.current_question.title %>
