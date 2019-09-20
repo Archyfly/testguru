@@ -42,3 +42,7 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
+
+  test_mailer:
+    completed_test:
+      subject: "Вы завершили Прохождение!"  
