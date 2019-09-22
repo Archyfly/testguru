@@ -1,12 +1,15 @@
 ru:
   helpers:
+    id: "ID теста"
+
     submit:
       test:
         create: "Создать тест"
         update: "Обновить тест"
         prompt: "Выберите из списка"
     label:
-      test:
+      tests:
+        id: "ID теста"
         title: "Название теста"
         level: "Уровень сложности"
         category_id: "Категория"
@@ -14,6 +17,9 @@ ru:
   tests:
     index:
       header: "Доступные тесты для прохождения"
+    tests:
+      label:
+        id: "ID теста"
 
   test_passages:
     result:
@@ -45,4 +51,4 @@ ru:
 
   test_mailer:
     completed_test:
-      subject: "Вы завершили Прохождение!"  
+      subject: "Вы завершили Прохождение!"

@@ -41,6 +41,11 @@ en:
         level: "Difficulty level"
         category_id: "Select category"
 
+  admin:
+    label:
+      tests:
+        id: "ID"
+
   tests:
     index:
       header: "Tricky tests for passage"
