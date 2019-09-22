@@ -7,19 +7,15 @@ ru:
         create: "Создать тест"
         update: "Обновить тест"
         prompt: "Выберите из списка"
-    label:
-      tests:
-        id: "ID теста"
-        title: "Название теста"
-        level: "Уровень сложности"
-        category_id: "Категория"
 
   tests:
     index:
       header: "Доступные тесты для прохождения"
-    tests:
-      label:
-        id: "ID теста"
+      id: "ID теста"
+      title: "Название теста"
+      level: "Уровень сложности"
+      start: "Начать тест"
+      questions_count: "Количество вопросов"
 
   test_passages:
     result:
@@ -40,6 +36,11 @@ ru:
         success: "Тест очень успешно создан, не забудьте про вопросы..."
       index:
         header: "Доступные тесты для прохождения"
+        id: "ID теста"
+        title: "Название теста"
+        level: "Уровень сложности"
+        actions: "Возможные действия"
+        questions_count: "Количество вопросов"
 
   shared:
     errors:
