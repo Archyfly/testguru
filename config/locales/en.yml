@@ -35,15 +35,16 @@ en:
       test:
         create: "Create New test"
         update: "Update this test"
-    label:
-      test:
-        title: "Test title"
-        level: "Difficulty level"
-        category_id: "Select category"
 
   tests:
     index:
       header: "Tricky tests for passage"
+      id: "Test ID"
+      title: "Test title"
+      level: "Difficulty level"
+      start: "Start test passage"
+      questions_count: "Questions count"
+
 
   test_passages:
     result:
@@ -64,9 +65,18 @@ en:
         success: "Test succesfully create, don't forget about questions..."
       index:
         header: "Tricky tests for passage"
-      
+        id: "Test ID"
+        title: "Test title"
+        level: "Difficulty level"
+        actions: "Possible actions"
+        questions_count: "Questions count"
+
   shared:
     errors:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+
+  test_mailer:
+    completed_test:
+      subject: "You just completed the TestGuru test!"

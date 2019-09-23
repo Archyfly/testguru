@@ -5,7 +5,7 @@ class Admin::TestsController < Admin::BaseController
   # то и метод :authenticate_user! тоже будет доступен.
   # Убран после подключения devise. Вместо него будет базовый контроллер, разделяющий доступ: base_controller
 
-  before_action :find_test, only: %i[edit update show start]
+  before_action :find_test, only: %i[edit update show start destroy]
 
   # после применения :authenticate_user! с использованием devise
   # этот метод больше не нужон, так как будем использовать current_user
@@ -37,7 +37,7 @@ class Admin::TestsController < Admin::BaseController
   def create
     @test = current_user.authored_tests.new(test_params)
     if @test.save
-      redirect_to [:admin, @test], notice: t('.success') 
+      redirect_to [:admin, @test], notice: t('.success')
     else
       render :new
     end
@@ -60,11 +60,16 @@ class Admin::TestsController < Admin::BaseController
     redirect_to current_user.test_passage(@test)
   end
 
+  def destroy
+    @test.destroy
+    redirect_to tests_url
+  end
+
   private
 
-   def find_test
-     @test = Test.find(params[:id])
-   end
+  def find_test
+    @test = Test.find(params[:id])
+  end
 
   def test_params
     params.require(:test).permit(:title, :level, :category_id)
