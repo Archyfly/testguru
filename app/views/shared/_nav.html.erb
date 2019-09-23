@@ -7,8 +7,8 @@
       <% if current_user.admin? %>
         <button type="submit" class="btn"><%= link_to 'Admin panel', admin_tests_path %></button>
       <% end %>
-      <%= link_to 'logout', destroy_user_session_path, method: :delete %>
 
+      <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
 
     <% else %>
       <%= link_to "Log in", new_session_path(resource_name) %>

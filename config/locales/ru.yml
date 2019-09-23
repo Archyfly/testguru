@@ -1,12 +1,12 @@
 ru:
   helpers:
-    id: "ID теста"
-
     submit:
       test:
         create: "Создать тест"
         update: "Обновить тест"
         prompt: "Выберите из списка"
+    shared:
+      logout: "Выход"
 
   tests:
     index:
@@ -41,6 +41,7 @@ ru:
         level: "Уровень сложности"
         actions: "Возможные действия"
         questions_count: "Количество вопросов"
+
 
   shared:
     errors:

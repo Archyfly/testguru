@@ -40,6 +40,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Auth from gem DEVISE
 gem 'devise', '~> 4.0'
 
+# NETWORKING (http client for gist)
+
+gem 'faraday'
+
 # LOCALIZATION
 gem 'rails-i18n', '~> 5.0.0'
 
