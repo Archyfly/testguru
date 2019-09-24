@@ -24,6 +24,9 @@ ru:
       header: "Прохождение теста %{title}"
       questions_count: "Количество вопросов в тесте: %{questions_count}"
       questions_id: "Вопрос № %{questions_id}"
+    gist:
+      success: "Сущность создана успешно"
+      failure: "Чето пошло не так, сущность не создалась"
 
   devise:
     sessions:

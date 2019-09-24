@@ -53,6 +53,9 @@ en:
       header: "Passing test %{title}"
       questions_count: "Count of Questions in test: %{questions_count}"
       questions_id: "Question id: %{questions_id}"
+    gist:
+      success: "Gist succesfully created"
+      failure: "Gist not created..."
 
   devise:
     sessions:
