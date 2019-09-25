@@ -2,10 +2,9 @@ class GitHubClient
 
   ROOT_ENDPOINT = 'https://api.github.com'
   ACCESS_TOKEN = ENV['GITHUB_TOKEN']
-
-  # пример приведенный выше небезопасен, необходимо
-  # указать ACCESS_TOKEN в переменной окружения (скрин 26:57)
-  # ACCESS_TOKEN = ENV['GITHUB_TOKEN'] (к примеру)
+  
+  #
+  # ACCESS_TOKEN = ENV['GITHUB_TOKEN']
   #
   def initialize
     @http_client = setup_http_client
