@@ -1,7 +1,7 @@
 class GitHubClient
 
   ROOT_ENDPOINT = 'https://api.github.com'
-  ACCESS_TOKEN = 'bee03666f0f5db77fe54f8aaaa8054a0d475203d'
+  ACCESS_TOKEN = ENV['GITHUB_TOKEN']
 
   # пример приведенный выше небезопасен, необходимо
   # указать ACCESS_TOKEN в переменной окружения (скрин 26:57)
@@ -24,4 +24,6 @@ class GitHubClient
   def setup_http_client
     Faraday.new(url: ROOT_ENDPOINT)
   end
+
+
 end

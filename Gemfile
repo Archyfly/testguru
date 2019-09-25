@@ -43,6 +43,10 @@ gem 'devise', '~> 4.0'
 # NETWORKING (http client for gist)
 
 gem 'faraday'
+gem 'octokit'
+
+# ENV HIDE
+gem 'dotenv-rails', :groups => [:development, :test]
 
 # LOCALIZATION
 gem 'rails-i18n', '~> 5.0.0'
