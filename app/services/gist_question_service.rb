@@ -1,18 +1,20 @@
 class GistQuestionService
 
+#require 'octokit'
+
+ROOT_ENDPOINT = 'https://gist.github.com'
+ACCESS_TOKEN = ENV['GITHUB_TOKEN']
+
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
-    @client = client || GitHubClient.new
+    @client = client || Octokit::Client.new(:access_token => ACCESS_TOKEN, :uri => ROOT_ENDPOINT)
+    #@client = client || GitHubClient.new
   end
 
   def call
     @client.create_gist(gist_params)
   end
-
-  #  def gist_content_to_table
-  #    gist_content
-  #  end
 
   private
 
@@ -21,8 +23,7 @@ class GistQuestionService
       description: "A question about #{@test.title} from TestGuru by Octokit",
         files: {
           'test-guru-question.txt' => {
-          content: "test content"
-          # gist_content
+          content: gist_content
          }
        }
     }

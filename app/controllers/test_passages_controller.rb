@@ -14,13 +14,12 @@ class TestPassagesController < ApplicationController
   def gist
     result = GistQuestionService.new(@test_passage.current_question).call
 
-
-    flash_options = if result.success?
+    flash_options = if result
         { notice: t('.success') }
       else
         { alert: t('.failure') }
       end
-    flash.now[:alert] = "#{flash_options}"  
+    flash.now[:alert] = "#{flash_options}"
     redirect_to @test_passage, flash_options
 
   end
