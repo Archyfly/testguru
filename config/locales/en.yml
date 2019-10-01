@@ -54,7 +54,7 @@ en:
       questions_count: "Count of Questions in test: %{questions_count}"
       questions_id: "Question id: %{questions_id}"
     gist:
-      success: "Gist succesfully created"
+      success: "Gist succesfully created. Gist url: %{created_gist_url}"
       failure: "Gist not created..."
 
   devise:
