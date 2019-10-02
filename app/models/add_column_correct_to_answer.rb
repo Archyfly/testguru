@@ -1,2 +1,0 @@
-class AddColumnCorrectToAnswer < ApplicationRecord
-end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_15_151540) do
+ActiveRecord::Schema.define(version: 2019_10_02_170301) do
 
   create_table "answers", force: :cascade do |t|
     t.string "body"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2019_09_15_151540) do
 
 # Could not dump table "categories" because of following StandardError
 #   Unknown type 'true' for column 'index'
+
+  create_table "gists", force: :cascade do |t|
+    t.string "gisturl"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "users_id"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_gists_on_user_id"
+    t.index ["users_id"], name: "index_gists_on_users_id"
+  end
 
   create_table "questions", force: :cascade do |t|
     t.string "title"
