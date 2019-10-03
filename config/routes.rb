@@ -32,6 +32,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :gists
+  resources :gists, only: %i[index show]
 
 end
