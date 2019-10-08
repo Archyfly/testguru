@@ -21,7 +21,6 @@ class Admin::TestsController < Admin::BaseController
     #render plain: result.join("\n")
     @tests = Test.all
     @category = Category.all
-
   end
 
   def show

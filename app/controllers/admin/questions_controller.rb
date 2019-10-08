@@ -7,13 +7,13 @@ before_action :find_question, only: %i[show edit update destroy]
   end
 
   def show
-    #@question = @test.questions.find(params[:id])
+    @question = question.test
   end
 
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      redirect_to test_questions_path
+      redirect_to [:admin, @question.test], notice: t('.success')
     else
       redirect_to :new
     end
@@ -24,7 +24,7 @@ before_action :find_question, only: %i[show edit update destroy]
   end
 
   def edit
-    #@question = Question.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def update

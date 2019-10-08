@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_10_02_170301) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
     t.string "body"
     t.boolean "correct", default: false
@@ -20,9 +23,6 @@ ActiveRecord::Schema.define(version: 2019_10_02_170301) do
     t.integer "question_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
-
-# Could not dump table "categories" because of following StandardError
-#   Unknown type 'true' for column 'index'
 
   create_table "gists", force: :cascade do |t|
     t.string "gisturl"
