@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :tests do
+    resources :tests, shallow: true do
       resources :questions, shallow: true do
         resources :answers, shallow: true
       end
