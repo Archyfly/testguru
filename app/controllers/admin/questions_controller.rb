@@ -29,7 +29,7 @@ before_action :find_question, only: %i[show edit update destroy]
 
   def update
     if @question.update(question_params)
-      redirect_to @question.test
+      redirect_to admin_question_path
     else
       render :edit
     end
