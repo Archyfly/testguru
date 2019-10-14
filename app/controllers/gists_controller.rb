@@ -11,7 +11,18 @@ class GistsController < ApplicationController
     gists = @user.gists
   end
 
+  def new
+  end
+
+  def create
+    @gist = Gist.new(gist_params)
+  end
+
   private
+
+  def gist_params
+    params.require(:gist).permit(:gisturl)
+  end
 
   def find_gist
     @gist = Gist.find(params[:id])
