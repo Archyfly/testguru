@@ -34,4 +34,7 @@ Rails.application.routes.draw do
 
   resources :gists, only: %i[index show]
 
+  namespace :admin do
+    resources :users, only: %i[index show]
+  end
 end
