@@ -1,13 +1,20 @@
 <h1>Show all Gists</h1>
 
-<table border="1">
+<table class="table table-striped table-dark" border = "1">
   <tr>
-    <th>User</th>
-    <th><%= Gist.all %></th>
+    <th>user</th>
+    <th>question</th>
+    <th>gisturl</th>
 
   </tr>
 
-<!-- это просмотр всех gists -->
-<%= render @gists %>
+  <% @gists.each do |gist| %>
+    <tr>
+      <td><%= User.find(gist.user_id).email %></td>
+      <td><%= Question.find(gist.question_id).title %></td>
+      <td><%= gist.gisturl %></td>
+    </tr>
+  <% end %>
 </table>
+
 <br/>
