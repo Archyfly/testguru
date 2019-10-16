@@ -10,9 +10,10 @@
 
   <% @gists.each do |gist| %>
     <tr>
-      <td><%= User.find(gist.user_id).email %></td>
-      <td><%= Question.find(gist.question_id).title %></td>
+      <td><%= gist.user.email %></td>
+      <td><%= gist.question.title %></td>
       <td><%= gist.gisturl %></td>
+
     </tr>
   <% end %>
 </table>

@@ -12,12 +12,12 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    @result = GistQuestionService.new(@test_passage.current_question).call
+    result = GistQuestionService.new(@test_passage.current_question).call
 
-    @created_gist_url = @result.url
-    gist_to_table
+    @created_gist_url = result.url
+    gist_to_table if result
 
-    flash_options = if @result
+    flash_options = if result
         { notice: t('.success') }
       else
         { alert: t('.failure') }
@@ -40,8 +40,8 @@ class TestPassagesController < ApplicationController
   end
 
   def gist_to_table
-    @gist = Gist.new(user_id: current_user.id, question_id: @test_passage.current_question.id, gisturl: @created_gist_url)
-    @gist.save
+    gist = Gist.new(user_id: current_user.id, question_id: @test_passage.current_question.id, gisturl: @created_gist_url)
+    gist.save
   end
 
   private
