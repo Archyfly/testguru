@@ -20,15 +20,25 @@ Rails.application.routes.draw do
   resources :test_passages, only: %i[show update] do
     member do
       get :result
+      post :gist
     end
   end
 
   namespace :admin do
-    resources :tests do
-      resources :questions, except: :index, shallow: true do
-        resources :answers, except: :index, shallow: true
+    resources :tests, shallow: true do
+      resources :questions, shallow: true do
+        resources :answers, shallow: true
       end
     end
   end
 
+  resources :gists, only: %i[index show]
+
+  namespace :admin do
+    resources :users, only: %i[index show]
+  end
+
+  namespace :admin do
+    resources :gists, only: %i[index show]
+  end
 end

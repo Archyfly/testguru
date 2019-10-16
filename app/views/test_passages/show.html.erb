@@ -5,9 +5,9 @@
 <p><%= t('.questions_count', questions_count: @test_passage.test.questions.count) %></p>
 <p><%= t('.questions_id', questions_id: @test_passage.current_question.id) %></p>
 
-<b>
-  <%= @test_passage.current_question.title %>
-</b>
+<p>
+  <b><%= @test_passage.current_question.title %></b>
+</p>
 
 <%# Здесь вместо модели передем конкретный URL, на который должны отправить данную
 форму, отправляться будет по URL test_passage_path, и нам надо отправить не post (по умолчанию),
@@ -22,5 +22,10 @@
       <%= b.label %>
     </p>
   <% end %>
+
+  <p><%= link_to 'Gist question', gist_test_passage_path(@test_passage), method: :post %></p>
+
   <p><%= form.submit 'Next' %></p>
+
+
 <% end %>

@@ -1,0 +1,27 @@
+<h1>Users presented:</h1>
+<table class="table table-striped table-dark" border = "1">
+  <tr>
+    <th> email</th>
+    <th>type</th>
+    <th>current_sign_in_ip</th>
+    <th>last_sign_in_ip</th>
+    <th>confirmation_token</th>
+    <th>confirmed_at</th>
+    <th>confirmation_sent_at</th>
+    <th>first_name</th>
+    <th>last_name</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.type %></td>
+      <td><%= user.current_sign_in_ip  %></td>
+      <td><%= user.last_sign_in_ip %></td>
+      <td><%= user.confirmation_token %></td>
+      <td><%= user.confirmed_at %></td>
+      <td><%= user.confirmation_sent_at %></td>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name  %></td>
+    </tr>
+  <% end %>
+</table>

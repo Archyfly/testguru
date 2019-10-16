@@ -1,12 +1,14 @@
 ru:
   helpers:
-    id: "ID теста"
-
     submit:
       test:
         create: "Создать тест"
         update: "Обновить тест"
         prompt: "Выберите из списка"
+    shared:
+      logout: "Выход"
+    question:
+      question_header: "Отредактировать вопрос %{question.title}"
 
   tests:
     index:
@@ -17,6 +19,7 @@ ru:
       start: "Начать тест"
       questions_count: "Количество вопросов"
 
+
   test_passages:
     result:
       header: "Тест %{title} успешно завершён!"
@@ -24,6 +27,9 @@ ru:
       header: "Прохождение теста %{title}"
       questions_count: "Количество вопросов в тесте: %{questions_count}"
       questions_id: "Вопрос № %{questions_id}"
+    gist:
+      success: "Сущность создана успешно. Cсылка:  %{created_gist_url}"
+      failure: "Чето пошло не так, сущность не создалась"
 
   devise:
     sessions:
@@ -41,6 +47,10 @@ ru:
         level: "Уровень сложности"
         actions: "Возможные действия"
         questions_count: "Количество вопросов"
+      edit:
+        questions:
+          create:
+            title: "Название теста"
 
   shared:
     errors:

@@ -5,6 +5,7 @@ class Test < ApplicationRecord
   has_many :test_passages
   has_many :users, through: :test_passages # through - опция, указывающая через какую таблица идет связь
   belongs_to :author, class_name: "User" # связь с user через author
+  accepts_nested_attributes_for :questions
 
   #scope :levels, -> { pluck('title', 'level') }
   #scope :test_level, -> { where('title: title AND level: level')}

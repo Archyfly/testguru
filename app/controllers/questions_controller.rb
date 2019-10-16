@@ -9,35 +9,6 @@ before_action :find_question, only: %i[show edit update destroy]
   def show
   end
 
-  def create
-    @question = @test.questions.new(question_params)
-    if @question.save
-      redirect_to test_questions_path
-    else
-      redirect_to :new
-    end
-  end
-
-  def new
-    @question = @test.questions.new
-  end
-
-  def edit
-  end
-
-  def update
-    if @question.update(question_params)
-      redirect_to @question.test
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @question.destroy
-    redirect_to @test.questions
-  end
-
   private
 
   def question_params

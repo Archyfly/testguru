@@ -6,7 +6,9 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+# USE POSTGRESQL
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -39,6 +41,14 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Auth from gem DEVISE
 gem 'devise', '~> 4.0'
+
+# NETWORKING (http client for gist)
+
+gem 'faraday'
+gem 'octokit'
+
+# ENV HIDE
+gem 'dotenv-rails', :groups => [:development, :test]
 
 # LOCALIZATION
 gem 'rails-i18n', '~> 5.0.0'
