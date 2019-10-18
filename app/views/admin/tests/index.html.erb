@@ -2,8 +2,12 @@
 
 <table class="table table-striped table-dark" border = "1">
   <tr>
-    <th><%= t('.id') %></th>
-    <th><%= t('.title') %></th>
+    
+    <th class="sort-by-title pointer">
+      <%= t('.title') %>
+      <%= octicon 'arrow-up', class: 'text-succes hide' %>
+      <%= octicon 'arrow-down', class: 'text-succes hide' %>
+    </th>
     <th><%= t('.level') %></th>
     <th colspan="3"><%= t('.actions') %></th>
     <th><%= t('.questions_count') %></th>
