@@ -9,8 +9,8 @@ document.addEventListener('turbolinks:load', function() {
 
   // $('.form-inline-link').on('click', formInlineHandler) - через jquery
   var errors = document.querySelector('.resource-errors')
-
-  if (errors) {
+  console.log(errors.innerHTML + ' is ERROR')
+  if (errors.innerHTML) {
     var resourceId = this.dataset.resourceId
     formInlineHandler(resourceId)
   }
