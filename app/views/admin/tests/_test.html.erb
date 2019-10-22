@@ -1,12 +1,23 @@
 <tr>
-  
-  <td><%= test.title %></td>
-  <td><%= test.level %></td>
+  <td class="align-middle">
+    <%= content_tag :span, test.title, class: 'test-title', data: {test_id: test.id} %>
 
-  <td><%= link_to t('.show'), admin_test_path(test) %></td>
-  <td><%= link_to "Edit", edit_admin_test_path(test) %></td>
+    <!-- скринкаст по аттрибутам - 19:40 - разьяснение почему просто не оборачиваем в span и пример -->
 
-  <td>
+    <!-- здесь передаем не просто test из коллекции @tests,
+      а проверяем - если во время итерации(во время отображения) всех тестов которые у нас есть
+      мы доходим до того теста, который пытались обновить в методе update_inline  - то мы будем именно
+      этот конкретный тест который пытались обновить, передавать в form_inline, иначе передаем тест из коллекции -->
+    <%= render 'form_inline', test: test == @test ? @test : test %>
+  </td>
+  <td class="align-middle"><%= test.level %></td>
+  <td class="align-middle"><%= link_to t('.show'), admin_test_path(test) %></td>
+  <td class="align-middle">
+    <%= link_to "Edit",
+                edit_admin_test_path(test),
+                data: { test_id: test.id },
+                class: 'form-inline-link' %></td>
+  <td class="align-middle">
     <%= link_to 'Delete',
     admin_test_path(test),
     method: :delete,

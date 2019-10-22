@@ -3,7 +3,7 @@ ru:
     submit:
       test:
         create: "Создать тест"
-        update: "Обновить тест"
+        update: "Ок"
         prompt: "Выберите из списка"
     shared:
       logout: "Выход"
@@ -18,7 +18,6 @@ ru:
       level: "Уровень сложности"
       start: "Начать тест"
       questions_count: "Количество вопросов"
-
 
   test_passages:
     result:
@@ -47,6 +46,8 @@ ru:
         level: "Уровень сложности"
         actions: "Возможные действия"
         questions_count: "Количество вопросов"
+      form_inline:
+        submit: "ОК"
       edit:
         questions:
           create:
