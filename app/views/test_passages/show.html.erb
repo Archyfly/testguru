@@ -2,7 +2,8 @@
 который мы проходим. Чтобы получить название теста у нас есть обьект модели @test_passage,
 по ассоциации забираем обьект теста %>
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
-<p><%= t('.questions_count', questions_count: @test_passage.test.questions.count) %></p>
+<div id="questionCount"><%= @test_passage.test.questions.count %></div>
+<%= t('.questions_count', questions_count: @test_passage.test.questions.count) %>
 <p><%= t('.questions_id', questions_id: @test_passage.current_question.id) %></p>
 
 <p>
@@ -14,6 +15,19 @@
  a put, так с помощью формы мы хотим изменить наш текущий обьект test_passage.
 это для того чтобы увеличить атрибут correct_questions если пользователь дал правильный ответ.
 Это просто данные, не связанные с моделью (скрин 15-40 )  %>
+<% count = @test_passage.test.questions.count %>
+<% i = @test_passage.current_question.id %>
+
+<% while (i < count) do %>
+  <canvas id="<%= i %>" width="30" height="10" border="1px">1</canvas>
+    <script>
+			var example = document.getElementById("<%= i %>"),
+	    ctx = example.getContext('2d');
+			ctx.strokeRect(0, 0, example.width, example.height);
+    </script>
+  <% i = i + 1 %>
+
+<% end %>
 
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false  do |b| %>
