@@ -2,7 +2,9 @@
 который мы проходим. Чтобы получить название теста у нас есть обьект модели @test_passage,
 по ассоциации забираем обьект теста %>
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
-<div id="questionCount"><%= @test_passage.test.questions.count %></div>
+<div class="countOfQuestions"><%= @test_passage.test.questions.count %></div>
+<div class="currentQuestionNumber"><%= @test_passage.current_question.id %></div>
+
 <%= t('.questions_count', questions_count: @test_passage.test.questions.count) %>
 <p><%= t('.questions_id', questions_id: @test_passage.current_question.id) %></p>
 
@@ -17,18 +19,21 @@
 Это просто данные, не связанные с моделью (скрин 15-40 )  %>
 <% count = @test_passage.test.questions.count %>
 <% i = @test_passage.current_question.id %>
-
-<% while (i < count) do %>
-  <canvas id="<%= i %>" width="30" height="10" border="1px">1</canvas>
+<% j = 0 %>
+<% while (j < count) do %>
+  <canvas id="<%= j %>" width="30" height="10" border="1px">1</canvas>
     <script>
-			var example = document.getElementById("<%= i %>"),
-	    ctx = example.getContext('2d');
-			ctx.strokeRect(0, 0, example.width, example.height);
+			var recStroke = document.getElementById("<%= j %>"),
+	    ctx = recStroke.getContext('2d');
+			ctx.strokeRect(0, 0, recStroke.width, recStroke.height);
+      var recFill = document.getElementById("<%= i-1 %>"),
+      ctx = recFill.getContext('2d');
+			ctx.fillRect(0, 0, recFill.width, recFill.height);
+
     </script>
-  <% i = i + 1 %>
-
+  <% j = j + 1 %>
 <% end %>
-
+<div><canvas id="canvas1" width="30" height="15"></canvas></div>
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false  do |b| %>
     <p>
