@@ -1,5 +1,8 @@
 <nav class="navbar navbar-light bg-light">
   <%= link_to 'TestGuru', root_path, class: 'navbar-brand' %>
+  <a class="navbar-brand" href="#">
+    <%= image_tag "title-think.jpg" %>
+  </a>
 
   <span class="navbar-text">
     <% if user_signed_in? %>
