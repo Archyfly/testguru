@@ -34,7 +34,7 @@ en:
     submit:
       test:
         create: "Create New test"
-        update: "Update this test"
+        update: "Ok"
 
   tests:
     index:
@@ -73,6 +73,8 @@ en:
         level: "Difficulty level"
         actions: "Possible actions"
         questions_count: "Questions count"
+      form_inline:
+        submit: "Ok"
 
   shared:
     errors:

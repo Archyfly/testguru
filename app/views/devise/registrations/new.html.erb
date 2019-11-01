@@ -8,7 +8,7 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
+  <div class="field chk-input-one">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -16,7 +16,7 @@
     <%= f.password_field :password, autocomplete: "new-password", id: "psy1" %>
   </div>
 
-  <div class="field chk-input pointer octicon-red">
+  <div class="field chk-input-conf pointer octicon-red">
     <%= f.label :password_confirmation %><br />
 
     <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "psy2" %>

@@ -25,7 +25,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :tests, shallow: true do
+    resources :tests do
+      patch :update_inline, on: :member
+      # метод patch, поскольку обновляем конкретный тест - указываем опцию on: :member,
+      # чтобы у нас в url был id конкретного теста
+
       resources :questions, shallow: true do
         resources :answers, shallow: true
       end

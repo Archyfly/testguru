@@ -1,10 +1,13 @@
 document.addEventListener('turbolinks:load', function() {
-  var control = document.querySelector('.chk-input')
+  var controlOne = document.querySelector('.chk-input-one')
+  var controlConf = document.querySelector('.chk-input-conf')
 
-  if (control) {control.addEventListener('keyup', viewField, 'useCapture') }
+  if (controlOne) {controlOne.addEventListener('keyup', checkField, 'useCapture') }
+  if (controlConf) {controlConf.addEventListener('keyup', checkField, 'useCapture') }
+
 })
 
-function viewField() {
+function checkField() {
   var firstString = document.getElementById("psy1").value;
   var secondString = document.getElementById("psy2").value;
 

@@ -2,8 +2,23 @@
 который мы проходим. Чтобы получить название теста у нас есть обьект модели @test_passage,
 по ассоциации забираем обьект теста %>
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
+<div class="countOfQuestions" style="display: none"><%= @test_passage.test.questions.count %></div>
+<div class="currentQuestionNumber" style="display: none"><%= @test_passage.question_number %></div>
+
 <p><%= t('.questions_count', questions_count: @test_passage.test.questions.count) %></p>
 <p><%= t('.questions_id', questions_id: @test_passage.current_question.id) %></p>
+
+<% count = @test_passage.test.questions.count %>
+
+<p>Progress throught attr </p>
+<div id="progress">
+  <%= content_tag :div, '', id: 'bar', data: { count: @test_passage.test.questions.count, question_index: @test_passage.question_number} %>
+  <table border="2px" width="<%= count*30 %>" bordercolor="red">
+    <tr>
+      <td><canvas id="canvas2" width="30" height="15"></canvas></td>
+    </tr>
+  </table>
+</div>
 
 <p>
   <b><%= @test_passage.current_question.title %></b>

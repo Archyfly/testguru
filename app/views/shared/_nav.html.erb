@@ -1,5 +1,11 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light" style="background-color: #8b8b8b;">
   <%= link_to 'TestGuru', root_path, class: 'navbar-brand' %>
+  <a class="navbar-brand" href="#">
+    <%= image_tag "console-one.png" %>
+    <%= image_tag "github-one.png" %>
+    <%= image_tag "ruby-one.png" %>
+
+  </a>
 
   <span class="navbar-text">
     <% if user_signed_in? %>
