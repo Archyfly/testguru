@@ -6,7 +6,7 @@ class CreateGists < ActiveRecord::Migration[5.2]
      t.string :gisturl
 
      t.timestamps
-   
+
     end
   end
 end
