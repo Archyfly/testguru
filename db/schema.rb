@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 2019_10_02_154110) do
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "categories_id"
     t.string "email"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -99,7 +98,6 @@ ActiveRecord::Schema.define(version: 2019_10_02_154110) do
     t.string "type", default: "User", null: false
     t.string "first_name"
     t.string "last_name"
-    t.index ["categories_id"], name: "index_users_on_categories_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

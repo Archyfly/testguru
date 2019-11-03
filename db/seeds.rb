@@ -8,10 +8,9 @@
 
 #categories = Category.create([{title: 'Preprocessors'}, {title: 'Data Structures'}])
 
-#categories = Category.create([{title: 'Low lewel languages'}, {title: 'Databases'}])
-categories = Category.create(title: 'Frameworks')
-#user1 = User.create(name: 'Rashid', email: 'vasya@gmail.com', type: 'User', password: '111111', first_name: 'Vasiliy', last_name: 'Pupkov')
-#user2 = User.create(name: 'Lily', email: 'lily@gmail.com', type: 'Admin', password: '111111', first_name: 'Lily', last_name: 'Angery')
+categories = Category.create([{title: 'Frameworks'}, {title: 'Low lewel languages'}, {title: 'Databases'}])
+user1 = User.create(name: 'Rashid', email: 'vasya@gmail.com', type: 'User', password: '111111', first_name: 'Vasiliy', last_name: 'Pupkov')
+user2 = User.create(name: 'Lily', email: 'lily@gmail.com', type: 'Admin', password: '111111', first_name: 'Lily', last_name: 'Angery')
 
 #test1 = Test.create(title: 'Ruby on Rails', level: 8, category_id: 101, author_id: 2)
 #test2 = Test.create(title: 'Assembler', level: 9, category_id: 102, author_id: 2)
