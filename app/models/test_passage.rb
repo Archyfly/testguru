@@ -8,6 +8,7 @@ class TestPassage < ApplicationRecord
   # первый вопрос уже имел значение, существовал для TestPassage
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question_to_current, on: :update
+  # before_validation :before_validation_build_questions_index_in_test
 
   def success?(rate)
     rate >= SUCCESS_RATE
@@ -25,6 +26,13 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
+  # def before_validation_build_questions_index_in_test
+  #   questions_in_test = test.questions
+  # end
+  def question_number
+    test.questions.where('questions.id <= ?', current_question.id).count
+  end
+
   private
 
   def before_validation_set_first_question
@@ -34,6 +42,7 @@ class TestPassage < ApplicationRecord
   def before_validation_set_next_question_to_current
     self.current_question = next_question
   end
+
 
   # получили обьект correct_answers, используем count - только тогда получаем из агрегирующего запроса количество правильных ответов
   # == справа мы используем фильтр .where(id: answer_ids) - то есть те ответы, на которые ответил пользователь.

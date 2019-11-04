@@ -4,8 +4,8 @@ class Admin::TestsController < Admin::BaseController
   # так как TestsController наследуется от ApplicationController
   # то и метод :authenticate_user! тоже будет доступен.
   # Убран после подключения devise. Вместо него будет базовый контроллер, разделяющий доступ: base_controller
-
-  before_action :find_test, only: %i[edit update show start destroy]
+  before_action :set_tests, only: %i[index update_inline]
+  before_action :find_test, only: %i[edit update show start destroy update_inline]
 
   # после применения :authenticate_user! с использованием devise
   # этот метод больше не нужон, так как будем использовать current_user
@@ -16,15 +16,10 @@ class Admin::TestsController < Admin::BaseController
   # before_action :find_author, only: %i[show]
 
   def index
-    #byebug
-    #result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-    #render plain: result.join("\n")
-    @tests = Test.all
     @category = Category.all
   end
 
   def show
-    #@test = Test.find(params[:id])
     @questions = @test.questions
     @questions.count
   end
@@ -64,7 +59,19 @@ class Admin::TestsController < Admin::BaseController
     redirect_to tests_url
   end
 
+  def update_inline
+    if @test.update(test_params)
+      redirect_to admin_tests_path
+    else
+      render :index
+    end
+  end
+
   private
+
+  def set_tests
+    @tests = Test.all
+  end
 
   def find_test
     @test = Test.find(params[:id])
