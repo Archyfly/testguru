@@ -1,0 +1,9 @@
+<%= form_with model: [feedback], local: true do |form| %>
+
+  <p>
+    <%= form.label :feedback %><br>
+    <%= form.text_field :feedback %>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>

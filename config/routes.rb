@@ -45,4 +45,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :gists, only: %i[index show]
   end
+
+  resources :feedbacks
+  
 end

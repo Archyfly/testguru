@@ -1,0 +1,13 @@
+<h1><%= @feedbacks %></h1>
+<table border="1">
+  <tr>
+    <td><b> User name:</b>
+    <td><b> User last name:</b>
+    <td><b> Feedback:</b>
+  </tr>
+  <tr>
+    <td><%= @feedback.user.first_name %></td>
+    <td><%= @feedback.user.last_name %></td>
+    <td><%= @feedback.feedback %></td>
+  </tr>
+</table>
