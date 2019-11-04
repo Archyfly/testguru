@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   # include Auth - удаляем после подключения гема bcrypt
 
-  has_many :test_passages
+  has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages # through - опция, указывающая через какую таблица идет связь
   has_many :authored_tests, class_name: "Test", foreign_key: :author_id
 
