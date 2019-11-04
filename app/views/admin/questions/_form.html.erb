@@ -1,15 +1,9 @@
-<<<<<<< HEAD:app/views/questions/_form.html.erb
 <h1> <%= question_header(@question) %></h1>
-<%= form_with model: @question, url: (@question.new_record? ? [@test, @question]: @question), local: true do |form| %>
-=======
 <%= form_with model: [:admin, @test, @question], local: true do |form| %>
->>>>>>> task_fifteen:app/views/admin/questions/_form.html.erb
   <%= render 'shared/errors', resource: @question %>
-
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
   </p>
-
   <p><%= form.submit %></p>
 <% end %>
