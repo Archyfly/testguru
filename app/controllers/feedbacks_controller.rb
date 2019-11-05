@@ -2,18 +2,23 @@ class FeedbacksController < ApplicationController
 
   before_action :authenticate_user!
 
-  def show
-    @feedback = Feedback.first
+  def index
+    @feedbacks = Feedback.all
   end
 
   def new
     @feedback = Feedback.new
   end
 
+  def show
+    render :root
+  end
+
   def create
-    @feedback = current_user.create(feedback_params)
+    @feedback = current_user.feedbacks.new(feedback_params)
       if @feedback.save
-        redirect_to feedback_path
+        FeedbacksMailer.feedback_mail(current_user, @feedback).deliver_now
+        redirect_to feedbacks_url
       else
         render :new
       end

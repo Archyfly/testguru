@@ -1,10 +1,8 @@
-<nav class="navbar navbar-light" style="background-color: #8b8b8b;">
+<nav class="navbar navbar-light" style="background-color: #7b7b9b;">
   <%= link_to 'TestGuru', root_path, class: 'navbar-brand' %>
   <a class="navbar-brand" href="#">
-    <%= image_tag "console-one.png" %>
-    <%= image_tag "github-one.png" %>
-    <%= image_tag "ruby-one.png" %>
-
+    <%= image_tag("console-one.png", {:style => "width:200px;", :class => "rounded"}) %>
+    <%= image_tag("github-one.png", {:style => "width:260px;", :class => "rounded"}) %>
   </a>
 
   <span class="navbar-text">
@@ -12,6 +10,8 @@
       Welcome, <b><%= current_user.email %></b> Guru |
       <% if current_user.admin? %>
         <button type="submit" class="btn"><%= link_to 'Admin panel', admin_tests_path %></button>
+      <% else %>
+        <button type="submit" class="btn"><%= link_to 'Send your feedback', new_feedback_url %></button>
       <% end %>
 
       <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
