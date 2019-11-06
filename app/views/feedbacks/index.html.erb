@@ -1,18 +1,15 @@
-<h1>Show all feedbacks</h1>
+<h1 align="center"><b>Show all feedbacks</b></h1>
 
-<table class="table table-striped table-dark" border = "1">
+<table class="table table-striped table-light">
   <tr>
-    <th>user name:</th>
-    <th>user last name:</th>
-    <th>feedback</th>
+    <th><b>User email:</b></th>
+    <th><b>feedback<b></th>
   </tr>
 
   <% @feedbacks.each do |fb| %>
     <tr>
-      <td><%= fb.user.first_name %></td>
-      <td><%= fb.user.last_name %></td>
+      <td><%= fb.user.email %></td>
       <td><%= fb.feedback %></td>
-
     </tr>
   <% end %>
 </table>
