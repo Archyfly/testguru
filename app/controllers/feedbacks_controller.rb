@@ -17,7 +17,7 @@ class FeedbacksController < ApplicationController
   def create
     @feedback = current_user.feedbacks.new(feedback_params)
       if @feedback.save
-        FeedbacksMailer.feedback_mail(current_user, @feedback).deliver_now
+        #FeedbacksMailer.feedback_mail(current_user, @feedback).deliver_now
         redirect_to feedbacks_url
       else
         render :new
