@@ -1,6 +1,6 @@
 class Question < ApplicationRecord
   belongs_to :test#, optional: true
-  has_many :answers
+  has_many :answers, dependent: :destroy
 
   # scope :answers_count, -> { joins(:answers).count(:title) }
   # выдает количество записей соответствующих вопросу. так то работает, но не принято

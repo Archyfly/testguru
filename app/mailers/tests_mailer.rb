@@ -6,4 +6,5 @@ class TestsMailer < ApplicationMailer
 
     mail to: @user.email, subject: 'You just completed TestGuru test! Ahaha!'
   end
+
 end

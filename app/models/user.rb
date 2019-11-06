@@ -13,10 +13,10 @@ class User < ApplicationRecord
 
   # include Auth - удаляем после подключения гема bcrypt
 
-  has_many :test_passages
+  has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages # through - опция, указывающая через какую таблица идет связь
   has_many :authored_tests, class_name: "Test", foreign_key: :author_id
-
+  has_many :feedbacks
   # has_secure_password
 
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
