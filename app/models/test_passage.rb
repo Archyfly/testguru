@@ -48,8 +48,11 @@ class TestPassage < ApplicationRecord
   # == справа мы используем фильтр .where(id: answer_ids) - то есть те ответы, на которые ответил пользователь.
   # Здесь answer_ids - массив, который вернули чекбоксы, которые отметил пользователь.
   def correct_answer?(answer_ids)
-    correct_answers.count == (correct_answers.where(id: answer_ids).count) &&
-    correct_answers.count == answer_ids.count
+    if answer_ids 
+      correct_answers.count == (correct_answers.where(id: answer_ids).count) && correct_answers.count == answer_ids.count
+    else
+      correct_answers.count == 0
+    end
   end
 
   # здесь мы используем scope :correct (определенный в модели Answer)
