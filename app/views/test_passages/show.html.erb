@@ -5,8 +5,11 @@
 <div class="countOfQuestions" style="display: none"><%= @test_passage.test.questions.count %></div>
 <div class="currentQuestionNumber" style="display: none"><%= @test_passage.question_number %></div>
 
+<b><div class="setTestDuration"><%= @test_passage.test.test_duration %></div> minute for test passage</b>
+<div class="timeNow" style="display: none"><%= I18n.l(Time.now) %></div>
+
 <p><%= t('.questions_count', questions_count: @test_passage.test.questions.count) %></p>
-<p><%= t('.questions_id', questions_id: @test_passage.current_question.id) %></p>
+<p><%= t('.questions_id', questions_id: @test_passage.question_number) %></p>
 
 <% count = @test_passage.test.questions.count %>
 

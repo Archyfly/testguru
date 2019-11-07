@@ -42,6 +42,7 @@ en:
       id: "Test ID"
       title: "Test title"
       level: "Difficulty level"
+      duration: "Time (in minutes)"
       start: "Start test passage"
       questions_count: "Questions count"
 
