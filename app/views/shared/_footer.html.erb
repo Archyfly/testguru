@@ -14,4 +14,24 @@
         <p> Test for User is admin?  <%= current_user.admin? if current_user.present? %> </p>
 
   </div>
+
+  <div id="carousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag("console-one.png", {:style => "width:220px;", :class => "rounded"}) %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag("github-one.png", {:style => "width:220px;", :class => "rounded"}) %>
+      </div>
+    </div>
+  <!-- Элементы управления -->
+  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Предыдущий</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Следующий</span>
+  </a>
+  </div>
 </div>
