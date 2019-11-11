@@ -3,7 +3,7 @@ document.addEventListener('turbolinks:load', function() {
   // var timeNow = document.querySelector('.timeNow')
 
   console.log(testDuration)
-  let duration = testDuration*1000; // только для проверки, заменить на 60000 если берем минуты
+  let duration = testDuration*60000; 
   console.log(duration)
   if (duration > 0) { setTimeout(sayHi, duration); }
 })
