@@ -12,6 +12,11 @@
   </p><br>
 
   <p>
+    Enter <%= form.label :test_duration %> (in minutes)<br>
+    <%= form.text_field :test_duration %>
+  </p>
+
+  <p>
     <%= form.label :category_id %>:
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </p><br>
