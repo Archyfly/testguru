@@ -40,7 +40,7 @@ class TestPassage < ApplicationRecord
   end
 
   def before_validation_set_next_question_to_current
-    self.current_question = next_question
+    self.current_question = next_question if self.current_question
   end
 
 
@@ -48,7 +48,7 @@ class TestPassage < ApplicationRecord
   # == справа мы используем фильтр .where(id: answer_ids) - то есть те ответы, на которые ответил пользователь.
   # Здесь answer_ids - массив, который вернули чекбоксы, которые отметил пользователь.
   def correct_answer?(answer_ids)
-    if answer_ids 
+    if answer_ids
       correct_answers.count == (correct_answers.where(id: answer_ids).count) && correct_answers.count == answer_ids.count
     else
       correct_answers.count == 0
