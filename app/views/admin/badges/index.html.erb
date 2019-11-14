@@ -1,0 +1,18 @@
+<h1 align="center"><b>Badges</b></h1>
+
+<table class="table table-striped table-dark" border = "1">
+  <tr>
+    <td><%= t('.id') %></td>
+    <td><%= t('.title') %></td>
+    <td><%= t('.badgeurl') %></td>
+    <td><%= t('.description') %></td>
+  </tr>
+
+  <% @badges.each do |badge|  %>
+    <td><%= badge.id  %></td>
+    <td><%= badge.title %></td>
+    <td><%= badge.badgeurl %></td>
+    <td><%= badge.description %></td>
+  <% end %>
+</table>
+<br/>

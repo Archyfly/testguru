@@ -4,7 +4,7 @@
   <td><%= test.level %></td>
   <td><%= test.test_duration %></td>
   <td><%= button_to "Start test", start_test_path(test) %></td>
-  <td> <%= test.questions.count %></td>
-
+  <td><%= test.questions.count %></td>
+  <td><%= test.test_passages.pluck(:is_finished).count %></td>
 
 </tr>
