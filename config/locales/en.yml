@@ -76,7 +76,7 @@ en:
         questions_count: "Questions count"
       form_inline:
         submit: "Ok"
-    badges:
+    badges: 
       index:
         id: "ID badge"
         title: "Badge title"
