@@ -10,28 +10,23 @@ class Admin::BadgesController < ApplicationController
   end
 
   def new
-    @badge = current_user.badges.new
+    @badge = Badge.new
   end
 
   def edit
   end
 
   def create
-    @badge = current_user.badges.new(badge_params)
+    @badge = Badge.new(badge_params)
 
     if @badge.save
-      redirect_to [:admin, @badge], notice: "Badge was successfully created."
+      redirect_to [:admin, @badges], notice: "Badge was successfully created."
     else
       render :new
     end
   end
 
   def update
-    #if @answer.update(answer_params)
-    #  redirect_to admin_question_path(@answer), notice: "Answer was successfully updated."
-    #else
-    #  render :edit
-    #end
   end
 
   def destroy

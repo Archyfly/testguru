@@ -1,6 +1,10 @@
 <div class="row" align="right">
   <div class="col-12" style="height: 50px; padding: 5px;">
-      <div class="btn">Badge 1 Badge 2 Badge 3</div>
+    <% if current_user.present? %>
+      <% current_user.badges.each do |b| %>
+        <%= image_tag("#{b.badgeurl}", {:style => "width:70px;", title: "#{b.description}"}) %>
+      <% end %>
+    <% end %>
   </div>
 
 </div>

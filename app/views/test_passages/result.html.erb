@@ -5,8 +5,6 @@
 <% if @test_passage.success?(rate)
      color = 'green'
      message = 'passed!'
-     @test_passage.update(is_finished: true)
-
    else
      message = 'failed...'
      color = 'red'
