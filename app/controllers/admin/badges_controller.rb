@@ -10,17 +10,17 @@ class Admin::BadgesController < ApplicationController
   end
 
   def new
-    @badge = Badge.new
+    @badge = current_user.badges.new
   end
 
   def edit
   end
 
   def create
-    @badge = Badge.new(badge_params)
+    @badge = current_user.badges.new(badge_params)
 
     if @badge.save
-      redirect_to [:admin, @badges], notice: "Badge was successfully created."
+      redirect_to [:admin, @badge], notice: "Badge was successfully created."
     else
       render :new
     end
@@ -35,10 +35,6 @@ class Admin::BadgesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    #def set_answer
-    #  @answer = Answer.find(params[:id])
-    #end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def badge_params
