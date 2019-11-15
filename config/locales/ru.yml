@@ -19,6 +19,7 @@ ru:
       duration: "Время (в минутах) "
       start: "Начать тест"
       questions_count: "Количество вопросов"
+      is_finished: "Количество прохождений"
 
   test_passages:
     result:
@@ -53,6 +54,12 @@ ru:
         questions:
           create:
             title: "Название теста"
+    badges:
+      index:
+        id: "ID значка"
+        title: "Название значка"
+        badgeurl: "Путь до изображения"
+        description: "Описание"
 
   shared:
     errors:

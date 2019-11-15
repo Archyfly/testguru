@@ -46,6 +46,10 @@ Rails.application.routes.draw do
     resources :gists, only: %i[index show]
   end
 
+  namespace :admin do
+    resources :badges
+  end
+
   resources :feedbacks
-  
+
 end
