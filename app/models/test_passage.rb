@@ -27,12 +27,14 @@ class TestPassage < ApplicationRecord
     @badges_array = Badge.all
     @badges_array.each do |badge|
       # сравнить массив с требованиями к значку - сравнить массивы (тесты из одной категории например)
-     if badge.criteria && user_tests == badge.criteria
+     if badge.criteria & user_tests == badge.criteria
        user.user_badges << badge.id
        user.save
      end
+
    end
     # если совпало - то добавить в user_badges << badge.id
+
   end
 
   def accept!(answer_ids)
