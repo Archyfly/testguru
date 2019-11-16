@@ -33,6 +33,8 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
+
+      # здесь мы сохраняем просто тесты которые проходил пользователь!
       current_user.test_list << @test_passage.test_id
       current_user.save
       #@test_passage.update(is_finished: true) if @test_passage.success?(rate)

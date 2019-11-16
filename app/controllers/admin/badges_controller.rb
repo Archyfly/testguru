@@ -20,7 +20,7 @@ class Admin::BadgesController < ApplicationController
     @badge = current_user.badges.new(badge_params)
 
     if @badge.save
-      redirect_to [:admin, @badge], notice: "Badge was successfully created."
+      redirect_to admin_badges_path
     else
       render :new
     end
