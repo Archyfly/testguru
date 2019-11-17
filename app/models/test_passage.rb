@@ -17,24 +17,9 @@ class TestPassage < ApplicationRecord
   def success?(rate)
     if rate >= SUCCESS_RATE
       self.update(is_finished: true)
-      badge_to_user
+      badge_to_user = AwardService.new
+      badge_to_user.award_user
     end
-  end
-
-  def badge_to_user
-    # проверить массив test_list у пользователя
-    user_tests = user.test_list
-    @badges_array = Badge.all
-    @badges_array.each do |badge|
-      # сравнить массив с требованиями к значку - сравнить массивы (тесты из одной категории например)
-     if badge.criteria & user_tests == badge.criteria
-       user.user_badges << badge.id
-       user.save
-     end
-
-   end
-    # если совпало - то добавить в user_badges << badge.id
-
   end
 
   def accept!(answer_ids)

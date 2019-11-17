@@ -1,9 +1,8 @@
 <div class="row" align="right">
   <div class="col-12" style="height: 50px; padding: 5px;">
-    <% @badges = Badge.all %>
     <% if current_user.present? %>
-      <% current_user.user_badges.each_index do |user_badge| %>
-        <%= image_tag("#{@badges[user_badge].badgeurl}", {:style => "width:70px;", title: "#{@badges[user_badge].description}"}) %>
+      <% current_user.user_badges.each do |user_badge| %>
+        <%= image_tag("#{Badge.find(user_badge).badgeurl}", {:style => "width:70px;", title: "#{Badge.find(user_badge).description}"}) %>
       <% end %>
     <% end %>
   </div>

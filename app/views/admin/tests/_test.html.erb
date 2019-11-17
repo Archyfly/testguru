@@ -24,4 +24,5 @@
     data: { confirm: 'This test will be deleted! Are you sure?' } %>
   </td>
   <td> <%= test.questions.count %></td>
+  <td> <%= Category.find(test.category_id).title %></td>
 </tr>
