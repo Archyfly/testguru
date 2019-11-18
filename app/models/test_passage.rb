@@ -1,9 +1,7 @@
 class TestPassage < ApplicationRecord
 
-
-
-
   SUCCESS_RATE = 85
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -18,7 +16,7 @@ class TestPassage < ApplicationRecord
     if rate >= SUCCESS_RATE
       self.update(is_finished: true)
       badge_to_user = AwardService.new
-      badge_to_user.award_user
+      badge_to_user.award_user(user)
     end
   end
 
