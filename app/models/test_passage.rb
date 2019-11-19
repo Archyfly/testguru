@@ -15,7 +15,7 @@ class TestPassage < ApplicationRecord
   def success?(rate)
     if rate >= SUCCESS_RATE
       self.update(is_finished: true)
-      badge_to_user = AwardService.new(user)
+      badge_to_user = AwardService.new(user, test)
       badge_to_user.award_user(user)
     end
   end
