@@ -22,7 +22,7 @@ class AwardService
 
     # количество успешных прохождений надо вынести, так как повторяющийся запрос
     success_test_passages_count = TestPassage.all.where(is_finished: true, test_id: db_tests.ids, user_id: @user.id).count
-    badge = Badge.find(1)
+    #badge = Badge.find(1)
     return true if success_test_passages_count >= db_tests_count
   end
 
@@ -30,7 +30,7 @@ class AwardService
     db_tests = Test.all.where(category_id: 1)
     db_tests_count = db_tests.count
     success_test_passages_count = TestPassage.all.where(is_finished: true, test_id: db_tests.ids, user_id: @user.id).count
-    badge = Badge.find(3)
+    #badge = Badge.find(3)
     return true if success_test_passages_count >= db_tests_count
   end
 

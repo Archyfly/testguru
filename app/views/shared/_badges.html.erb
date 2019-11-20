@@ -1,10 +1,10 @@
-<div class="row" align="right">
-  <div class="col-12" style="height: 50px; padding: 5px;">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <div class="col-12" style="height: 50px; padding: 5px; align: right;" align="right">
     <% if current_user.present? %>
+      <p> User badges: </p>
       <% current_user.user_badges.each do |user_badge| %>
         <%= image_tag("#{Badge.find(user_badge).badgeurl}", {:style => "width:70px;", title: "#{Badge.find(user_badge).description}"}) %>
       <% end %>
     <% end %>
   </div>
-
-</div>
+</nav>
