@@ -2,13 +2,17 @@
 <% count = @test_passage.test.questions.count %>
 <% correct = @test_passage.correct_questions %>
 <% rate = correct*100/count %>
-<% if @test_passage.success?(rate)
+<%
+   duration = @test_passage.test.test_duration
+%>
+
+<% if @test_passage.success?(rate) && (@test_passage.updated_at - @test_passage.created_at <= duration*60)
      color = 'green'
-     message = 'passed!'
-   else
-     message = 'failed...'
-     color = 'red'
-   end
+     message = 'passed in time!'
+  else
+    message = 'failed...'
+    color = 'red'
+  end
 %>
 
 <%= link_to "All tests", tests_path %>

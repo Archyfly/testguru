@@ -32,9 +32,6 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
-  # def before_validation_build_questions_index_in_test
-  #   questions_in_test = test.questions
-  # end
   def question_number
     test.questions.where('questions.id <= ?', current_question.id).count
   end

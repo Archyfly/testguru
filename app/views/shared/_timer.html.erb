@@ -1,8 +1,19 @@
-<nav class="navbar navbar-light ">
-  <div class="col-1" style="height: 10px; padding: 5px;">
-      <p> Timer for this test: </p>
-      <b><div class="setTestDuration"><%= @test_passage.test.test_duration %> minute for passage this test</div></b>
-      <div class="timeNow" style="display: none"><%= I18n.l(Time.now) %></div>
+<font color="green"><b>
+  <div class="timeStartTest"><%= time_start = I18n.l(Time.now) %></div>
 
+  <div class="setTestDuration"><%= @test_passage.test.test_duration %> minute for passage this test</div></b>
+  <div class="timeNow" style="display: none"><%= I18n.l(Time.now) %></div>
+
+</font>
+
+<div id="clockdiv">
+  <div>Time remaining:
+    <span class="minutes"></span>
+      <div class="smalltext">Minutes:</div>
+    </div>
+    <div>
+      <span class="seconds"></span>
+      <div class="smalltext">Seconds:</div>
+    </div>
   </div>
-</nav>
+</div>

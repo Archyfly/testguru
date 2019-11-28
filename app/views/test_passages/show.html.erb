@@ -1,47 +1,41 @@
-<%# Дальше будем выводить название этого теста
-который мы проходим. Чтобы получить название теста у нас есть обьект модели @test_passage,
-по ассоциации забираем обьект теста %>
-<h1><%= t('.header', title: @test_passage.test.title) %></h1>
-<div class="countOfQuestions" style="display: none"><%= @test_passage.test.questions.count %></div>
-<div class="currentQuestionNumber" style="display: none"><%= @test_passage.question_number %></div>
+<div class="container">
+  <div class="row">
+    <div class="col">
 
+      <div class="setTestDuration" style="display: none"><%= @test_passage.test.test_duration %></div></b>
+      <h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
-<% count = @test_passage.test.questions.count %>
+      <div class="countOfQuestions" style="display: none"><%= @test_passage.test.questions.count %></div>
+      <div class="currentQuestionNumber" style="display: none"><%= @test_passage.question_number %></div>
 
-<p>Progress throught attr </p>
-<div id="progress">
-  <%= content_tag :div, '', id: 'bar', data: { count: @test_passage.test.questions.count, question_index: @test_passage.question_number} %>
-  <table border="2px" width="<%= count*30 %>" bordercolor="red">
-    <tr>
-      <td><canvas id="canvas2" width="30" height="15"></canvas></td>
-    </tr>
-  </table>
+  <% count = @test_passage.test.questions.count %>
+
+  <p>Progress throught attr </p>
+    <div id="progress">
+      <%= content_tag :div, '', id: 'bar', data: { count: @test_passage.test.questions.count, question_index: @test_passage.question_number} %>
+        <table border="2px" width="<%= count*30 %>" bordercolor="red">
+          <tr>
+            <td><canvas id="canvas2" width="30" height="15"></canvas></td>
+          </tr>
+        </table>
+    </div>
+
+    <p><%= t('.questions_count', questions_count: @test_passage.test.questions.count) %></p>
+    <p><%= t('.questions_id', questions_id: @test_passage.question_number) %></p>
+
+    <p><b><%= @test_passage.current_question.title %></b></p>
+
+    <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+      <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false  do |b| %>
+          <p><%= b.check_box id: "answer_ids_#{b.object.id}" %>
+          <%= b.label %></p>
+        <% end %>
+      <p><%= link_to 'Gist question', gist_test_passage_path(@test_passage), method: :post %></p>
+      <p><%= form.submit 'Next' %></p>
+    <% end %>
+    </div>
+    <div class="col">
+      <%= render 'shared/timer'%>
+    </div>
+  </div>
 </div>
-<p><%= t('.questions_count', questions_count: @test_passage.test.questions.count) %></p>
-<p><%= t('.questions_id', questions_id: @test_passage.question_number) %></p>
-
-<p>
-  <b><%= @test_passage.current_question.title %></b>
-</p>
-
-
-<%# Здесь вместо модели передем конкретный URL, на который должны отправить данную
-форму, отправляться будет по URL test_passage_path, и нам надо отправить не post (по умолчанию),
- a put, так с помощью формы мы хотим изменить наш текущий обьект test_passage.
-это для того чтобы увеличить атрибут correct_questions если пользователь дал правильный ответ.
-Это просто данные, не связанные с моделью (скрин 15-40 )  %>
-
-<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
-  <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false  do |b| %>
-    <p>
-      <%= b.check_box id: "answer_ids_#{b.object.id}" %>
-      <%= b.label %>
-    </p>
-  <% end %>
-
-  <p><%= link_to 'Gist question', gist_test_passage_path(@test_passage), method: :post %></p>
-
-  <p><%= form.submit 'Next' %></p>
-
-
-<% end %>
