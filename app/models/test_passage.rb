@@ -20,6 +20,10 @@ class TestPassage < ApplicationRecord
     end
   end
 
+  def in_time?(duration)
+    self.updated_at - self.created_at <= duration*60
+  end
+  
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions += 1

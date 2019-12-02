@@ -6,9 +6,12 @@
    duration = @test_passage.test.test_duration
 %>
 
-<% if @test_passage.success?(rate) && (@test_passage.updated_at - @test_passage.created_at <= duration*60)
+<% if @test_passage.success?(rate) && (@test_passage.in_time?(duration))
      color = 'green'
      message = 'passed in time!'
+  elsif @test_passage.success?(rate) && (!@test_passage.in_time?(duration))
+    color = 'blue'
+    message = 'passed but very slowly!'
   else
     message = 'failed...'
     color = 'red'
@@ -20,7 +23,6 @@
 <h1>Pass the <%= @test_passage.test.title %> Test </h1><br/>
 <h3>Count of questions in test: <%= count %></h3>
 <h3>Count of correct answers in result: <%= correct %></h3>
-<h3><font color="<%= color%>">Success rate: <%= rate %>%. Test <%= message %></font>
-
+<h3><font color="<%= color %>">Success rate: <%= rate %>%. Test <%= message %></font>
 
 <br/><br/>
