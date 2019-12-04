@@ -6,14 +6,32 @@
 
 </font>
 
-<div id="clockdiv">
+<div id="test-timer">
   <div>Time remaining:
     <span class="minutes"></span>
-      <div class="smalltext">Minutes:</div>
+      <div class="smalltext">Minutes:<p id='result'></p></div>
     </div>
     <div>
       <span class="seconds"></span>
       <div class="smalltext">Seconds:</div>
     </div>
   </div>
+
+  <script>
+    var duration = document.querySelector('.setTestDuration').innerHTML;
+    var timeLeft = duration
+    console.log(timeLeft)
+    timeNow = new Date;
+    timeStart = timeNow.getSeconds();
+    endTime = timeStart + timeLeft
+    console.log(endTime + " This endTime")
+
+    function getTimeLeft() {
+    timeNow2 = new Date();
+    timeLeft = Math.abs(endTime - timeNow2.getSeconds());
+    $('#result').text(timeLeft);
+  }
+
+  setInterval(getTimeLeft, 1000);
+  </script>
 </div>

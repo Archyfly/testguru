@@ -3,7 +3,7 @@ document.addEventListener('turbolinks:load', function() {
   //var testStarted = document.querySelector('.timeStartTest').innerHTML
   //var testEnded = testStarted + testDuration*60000
   console.log(testDuration)
-
+    
 
 
     console.log(minutes + ":" + seconds)
