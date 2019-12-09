@@ -1,37 +1,46 @@
 <font color="green"><b>
-  <div class="timeStartTest"><%= time_start = I18n.l(Time.now) %></div>
-
+  <div class="timeStartTest"><% time_start = Time.now %></div>
   <div class="setTestDuration"><%= @test_passage.test.test_duration %> minute for passage this test</div></b>
+  <p id="timeRemaining" style="color: green"><b>Time remaining:</b><p>
+  <p id="timeLeft" style="color: blue"></p>
   <div class="timeNow" style="display: none"><%= I18n.l(Time.now) %></div>
 
-</font>
+  </font>
 
-<div id="test-timer">
-  <div>Time remaining:
-    <span class="minutes"></span>
-      <div class="smalltext">Minutes:<p id='result'></p></div>
-    </div>
-    <div>
-      <span class="seconds"></span>
-      <div class="smalltext">Seconds:</div>
-    </div>
-  </div>
+
 
   <script>
     var duration = document.querySelector('.setTestDuration').innerHTML;
-    var timeLeft = duration
-    console.log(timeLeft)
-    timeNow = new Date;
-    timeStart = timeNow.getSeconds();
-    endTime = timeStart + timeLeft
-    console.log(endTime + " This endTime")
+    $("#timeEndTest").text(duration*60)
+    var mins = duration-1;
+    var secs = 60;
 
-    function getTimeLeft() {
-    timeNow2 = new Date();
-    timeLeft = Math.abs(endTime - timeNow2.getSeconds());
-    $('#result').text(timeLeft);
-  }
+    $("#mins").text(mins)
+    $("#secs").text(secs)
 
-  setInterval(getTimeLeft, 1000);
+    var timerLeft = setInterval(function() {
+      if (mins >= 0) {
+        if (secs > 0) {
+          secs -= 1
+          if (mins == 0 && secs < 10) {
+            $("#timeLeft").css("color", "red")
+            $("#timeRemaining").css("color", "red")
+            $("#timeLeft").text(mins + ':' + '0' + secs)
+          }
+          else {
+            $("#timeLeft").text(mins + ':' + secs)
+          }
+        }
+        else {
+          mins -= 1
+            secs = 60
+          }
+      }
+      else {
+        alert("You so slowly, try next time.")
+        clearInterval(timerLeft);
+      }
+  }, 1000);
+
+
   </script>
-</div>
