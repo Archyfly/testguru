@@ -21,7 +21,7 @@ function progressBar(progressSize, progressCurrent) {
     var canvas = document.getElementById("canvas2")
     ctx = canvas.getContext('2d');
    	document.getElementById("canvas2").width = 30+ j*30;
-      ctx.fillStyle = "green";
+      ctx.fillStyle = "red";
     ctx.fillRect(0, 5, canvas.width, canvas.height);
     j = j + 1;
   }
