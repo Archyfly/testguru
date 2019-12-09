@@ -2,17 +2,10 @@
 
 <table class="table table-striped table-dark" border = "1">
   <tr>
-    <td><%= t('.id') %></td>
-    <td><%= t('.title') %></td>
-    <td><%= t('.badgeurl') %></td>
-    <td><%= t('.description') %></td>
+    <th><%= t('.id') %></th>
+    <th><%= t('.title') %></th>
+    <th><%= t('.badgeurl') %></th>
+    <th><%= t('.description') %></th>
   </tr>
-
-  <% @badges.each do |badge|  %>
-    <td><%= badge.id  %></td>
-    <td><%= badge.title %></td>
-    <td><%= badge.badgeurl %></td>
-    <td><%= badge.description %></td>
-  <% end %>
+<%= render @badges %>
 </table>
-<br/>

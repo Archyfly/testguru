@@ -45,7 +45,7 @@ en:
       duration: "Time (in minutes)"
       start: "Start test passage"
       questions_count: "Questions count"
-      is_finished: "Passages count"
+      is_finished: "Passage succes?"
 
   test_passages:
     result:
@@ -76,7 +76,7 @@ en:
         questions_count: "Questions count"
       form_inline:
         submit: "Ok"
-    badges: 
+    badges:
       index:
         id: "ID badge"
         title: "Badge title"
