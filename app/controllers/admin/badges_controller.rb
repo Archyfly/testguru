@@ -27,6 +27,11 @@ class Admin::BadgesController < ApplicationController
   end
 
   def update
+    #if @answer.update(answer_params)
+    #  redirect_to admin_question_path(@answer), notice: "Answer was successfully updated."
+    #else
+    #  render :edit
+    #end
   end
 
   def destroy
@@ -35,6 +40,10 @@ class Admin::BadgesController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    #def set_answer
+    #  @answer = Answer.find(params[:id])
+    #end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def badge_params

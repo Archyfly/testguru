@@ -11,7 +11,7 @@ class TestPassage < ApplicationRecord
   # before_validation :before_validation_build_questions_index_in_test
 
   def success?(rate)
-    self.update(is_finished: true) if rate >= SUCCESS_RATE
+    rate >= SUCCESS_RATE
   end
 
   def accept!(answer_ids)

@@ -1,15 +1,11 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
   <div class="col-12" style="height: 50px; padding: 5px; align: right;" align="right">
     <% if current_user.present? %>
-<<<<<<< HEAD
-      <% current_user.badges.each do |b| %>
-        <%= image_tag("#{b.badgeurl}", {:style => "width:70px;", title: "#{b.description}"}) %>
-=======
       <p> User badges: </p>
       <% current_user.user_badges.each do |user_badge| %>
         <%= image_tag("#{Badge.find(user_badge).badgeurl}", {:style => "width:70px;", title: "#{Badge.find(user_badge).description}"}) %>
->>>>>>> bb85a36... timer view create
       <% end %>
     <% end %>
   </div>
 </nav>
+

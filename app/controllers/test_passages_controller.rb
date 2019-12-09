@@ -35,7 +35,6 @@ class TestPassagesController < ApplicationController
       TestsMailer.completed_test(@test_passage).deliver_now
       current_user.test_list << @test_passage.test_id
       current_user.save
-      #@test_passage.update(is_finished: true) if @test_passage.success?(rate)
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
