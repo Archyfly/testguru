@@ -19,7 +19,7 @@ ru:
       duration: "Время (в минутах) "
       start: "Начать тест"
       questions_count: "Количество вопросов"
-      is_finished: "Количество прохождений"
+      is_finished: "Успешность прохождений"
 
   test_passages:
     result:

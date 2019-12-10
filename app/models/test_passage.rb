@@ -1,5 +1,7 @@
 class TestPassage < ApplicationRecord
+
   SUCCESS_RATE = 85
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -11,9 +13,17 @@ class TestPassage < ApplicationRecord
   # before_validation :before_validation_build_questions_index_in_test
 
   def success?(rate)
-    rate >= SUCCESS_RATE
+    if rate >= SUCCESS_RATE
+      self.update(is_finished: true)
+      badge_to_user = AwardService.new(user, test)
+      badge_to_user.award_user(user)
+    end
   end
 
+  def in_time?(duration)
+    self.updated_at - self.created_at <= duration*60
+  end
+  
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions += 1
@@ -26,9 +36,6 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
-  # def before_validation_build_questions_index_in_test
-  #   questions_in_test = test.questions
-  # end
   def question_number
     test.questions.where('questions.id <= ?', current_question.id).count
   end
