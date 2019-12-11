@@ -20,10 +20,11 @@ class TestPassage < ApplicationRecord
     end
   end
 
+# проверка что успел, занесение в базу, если не успел - в базу садится false. Даже если отключил js
   def in_time?(duration)
     self.updated_at - self.created_at <= duration*60
   end
-  
+
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions += 1
