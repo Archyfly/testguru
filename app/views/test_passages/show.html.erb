@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col">
 
-
+      <div class="setTestDuration" style="display: none"><%= @test_passage.test.test_duration %></div></b>
       <h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
       <div class="countOfQuestions" style="display: none"><%= @test_passage.test.questions.count %></div>
@@ -34,6 +34,9 @@
       <p><%= form.submit 'Next' %></p>
     <% end %>
     </div>
-
+    <div class="col">
+      Timer
+      <%= render 'shared/timer' %>
+    </div>
   </div>
 </div>
