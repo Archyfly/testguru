@@ -6,6 +6,32 @@
   <div class="timeNow" style="display: none"><%= I18n.l(Time.now) %></div>
 </font>
 
+
+
+ <script>
+//script timer
+    var duration = document.querySelector('.setTestDuration').innerHTML;
+    $("#timeEndTest").text(duration*60)
+    var mins = duration-1;
+    var secs = 60;
+
+    $("#mins").text(mins)
+    $("#secs").text(secs)
+
+    var timerLeft = setInterval(function() {
+      if (mins >= 0) {
+        if (secs > 0) {
+          secs -= 1
+          if (mins == 0 && secs < 10) {
+            $("#timeLeft").css("color", "red")
+            $("#timeRemaining").css("color", "red")
+            $("#timeLeft").text(mins + ':' + '0' + secs)
+          }
+          else {
+            $("#timeLeft").text(mins + ':' + secs)
+          }
+</font>
+
 <script>
   var duration = document.querySelector('.setTestDuration').innerHTML;
   $("#timeEndTest").text(duration*60)
@@ -23,6 +49,7 @@
           $("#timeLeft").css("color", "red")
           $("#timeRemaining").css("color", "red")
           $("#timeLeft").text(mins + ':' + '0' + secs)
+
         }
         else {
           $("#timeLeft").text(mins + ':' + secs)
