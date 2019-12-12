@@ -1,7 +1,5 @@
 class TestPassage < ApplicationRecord
-
   SUCCESS_RATE = 85
-
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -13,12 +11,9 @@ class TestPassage < ApplicationRecord
   # before_validation :before_validation_build_questions_index_in_test
 
   def success?(rate)
-    if rate >= SUCCESS_RATE
-      self.update(is_finished: true)
-      badge_to_user = AwardService.new(user, test)
-      badge_to_user.award_user(user)
-    end
+    rate >= SUCCESS_RATE
   end
+
 
 # проверка что успел, занесение в базу, если не успел - в базу садится false. Даже если отключил js
   def in_time?(duration)
@@ -37,6 +32,9 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
+  # def before_validation_build_questions_index_in_test
+  #   questions_in_test = test.questions
+  # end
   def question_number
     test.questions.where('questions.id <= ?', current_question.id).count
   end

@@ -4,12 +4,11 @@
   <p id="timeRemaining" style="color: green"><b>Time remaining:</b><p>
   <p id="timeLeft" style="color: blue"></p>
   <div class="timeNow" style="display: none"><%= I18n.l(Time.now) %></div>
-
-  </font>
-
+</font>
 
 
-  <script>
+
+ <script>
 //script timer
     var duration = document.querySelector('.setTestDuration').innerHTML;
     $("#timeEndTest").text(duration*60)
@@ -31,17 +30,39 @@
           else {
             $("#timeLeft").text(mins + ':' + secs)
           }
+</font>
+
+<script>
+  var duration = document.querySelector('.setTestDuration').innerHTML;
+  $("#timeEndTest").text(duration*60)
+  var mins = duration-1;
+  var secs = 60;
+
+  $("#mins").text(mins)
+  $("#secs").text(secs)
+
+  var timerLeft = setInterval(function() {
+    if (mins >= 0) {
+      if (secs > 0) {
+        secs -= 1
+        if (mins == 0 && secs < 10) {
+          $("#timeLeft").css("color", "red")
+          $("#timeRemaining").css("color", "red")
+          $("#timeLeft").text(mins + ':' + '0' + secs)
+
         }
         else {
-          mins -= 1
-            secs = 60
-          }
+          $("#timeLeft").text(mins + ':' + secs)
+        }
       }
       else {
-        alert("You so slowly, try next time.")
-        clearInterval(timerLeft);
+        mins -= 1
+        secs = 60
+        }
+      }
+    else {
+      alert("You so slowly, try next time.")
+      clearInterval(timerLeft);
       }
   }, 1000);
-
-
-  </script>
+</script>
